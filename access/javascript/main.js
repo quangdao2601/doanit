@@ -69,7 +69,7 @@ function showHomeProductList(pageNumber, maxIndex, arrProduct) {
           break;
         } else {
           tempProductArr[t] = arrProduct[k];
-          var productCol = '<div class="grid__col-4">' + tempProductArr[t].name + "-" + tempProductArr[t].price + "</div>";
+          var productCol = '<div class="grid__col-4"><div class="home-product__item">' + tempProductArr[t].name + "-" + tempProductArr[t].price + "</div></div>";
           productCols += productCol;
           k++;
           t++;
@@ -84,7 +84,7 @@ function showHomeProductList(pageNumber, maxIndex, arrProduct) {
 
 function onloadFnc() {
   showProductTypeListFnc();
-  showHomeProductList(2, 9, arrProduct);
+  showHomeProductList(1, 9, arrProduct);
 }
 
 window.onload = onloadFnc;

@@ -478,3 +478,9 @@
 .product-type__item--actived {
   background-color: #ccc;
 }
+
+.home-product__item {
+  background-color: #ccc;
+  margin-bottom: 12px;
+  min-height: 100px;
+}
