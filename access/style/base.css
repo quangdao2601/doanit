@@ -43,7 +43,6 @@ html {
 
 .modal__body {
   margin: auto;
-  background-color: red;
   position: relative;
   border-radius: 4px;
   z-index: 20;
