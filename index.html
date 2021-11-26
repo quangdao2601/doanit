@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đồ án môn học</title>
+  <link rel="stylesheet" href="./access/style/base.css">
+  <link rel="stylesheet" href="./access/style/gridLayout.css">
+  <link rel="stylesheet" href="./access/style/main.css">
+  <link rel="stylesheet" href="./access/style/responsive.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="./access/icon_pack/themify-icons.css">
+</head>
+
+<body>
+  <div class="apps">
+    <!-- page header -->
+    <div id="page-header">
+      <!-- page header grid layout -->
+      <div class="grid">
+        <!-- top of header -->
+        <div class="page-header-top">
+          <!-- left top header side -->
+          <div class="page-header-top__left">
+            <!-- login -->
+            <div id="page-header-top__login" class="page-header-top__login page-header-item-hover">
+              <span class="page-header-login-span" onclick="showLoginFormFnc()">Đăng nhập</span>
+            </div>
+            <!-- register -->
+            <div id="page-header-top__register" class="page-header-top__register page-header-item-hover">
+              <span class="page-header-register-span" onclick="showRegisterFormFnc()">Đăng ký</span>
+            </div>
+          </div>
+
+          <!-- page header logo -->
+          <div class="page-header-logo">
+            <a href="#" class="page-header-logo-link">
+              <img src="./access/image/header_logo/logo.png" alt="LOGO" class="page-header-logo-img">
+            </a>
+          </div>
+
+          <!-- right top header side -->
+          <div class="page-header-top__right">
+            <!-- header search button -->
+            <div class="page-header-top__right-search">
+              <ion-icon class="page-header-search-icon" name="search-outline"></ion-icon>
+              <div class="page-header-search-box">
+                <input id="page-header-search-field" type="text" class="page-header-search-field" placeholder="Tìm kiếm...">
+                <ion-icon class="page-header-search-nav-icon" name="search-outline"></ion-icon>
+              </div>
+            </div>
+            <!-- header cart button -->
+            <div class="page-header-top__right-cart page-header-item-hover">
+              <ion-icon class="page-header-cart-icon" name="cart-outline"></ion-icon>
+            </div>
+          </div>
+        </div>
+
+        <div class="page-header-bot">
+          <ul class="page-header-navbar">
+            <!-- home navbar -->
+            <li class="page-header-navbar-item">
+              <a href="#" class="page-header-navbar-link page-header-navbar-home">
+                <span>Trang chủ</span>
+              </a>
+            </li>
+
+            <!-- about navbar -->
+            <li class="page-header-navbar-item">
+              <a href="#" class="page-header-navbar-link page-header-navbar-about">
+                <span>Giới thiệu</span>
+              </a>
+            </li>
+
+            <!-- product navbar -->
+            <li class="page-header-navbar-item page-header-navbar-prod">
+              <a href="#" class="page-header-navbar-link page-header-navbar-product">
+                <span>
+                  Sản phẩm
+                </span>
+                <i class='bx bx-chevron-down page-header-product-icon'></i>
+              </a>
+              <!-- product subnav -->
+              <ul class="page-header-product-subnav">
+                <li id="page-header-product-subnav__male">
+                  <a href="#" class="page-header-product-subnav__male-link page-header-product-subnav-link">Nam</a>
+                </li>
+                <li id="page-header-product-subnav__female">
+                  <a href="#" class="page-header-product-subnav__female-link page-header-product-subnav-link">Nữ</a>
+                </li>
+                <li id="page-header-product-subnav__unisex">
+                  <a href="#" class="page-header-product-subnav__unisex-link page-header-product-subnav-link">Unisex</a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- contact navbar -->
+            <li class="page-header-navbar-item">
+              <a href="#" class="page-header-navbar-link page-header-navbar-contact">
+                <span>Liên hệ</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <!-- page container -->
+      <div id="page-container">
+        container
+      </div>
+
+      <!-- page footer -->
+      <div id="page-footer">
+        footer
+      </div>
+    </div>
+
+    <!-- modal layout -->
+    <div id="modal-id" class="modal">
+      <!-- modal overlay -->
+      <div class="modal__overlay">
+      </div>
+
+      <!-- modal body -->
+      <div class="modal__body">
+        <div class="modal__inner">
+          <!-- register form -->
+          <form id="register-form-id" class="register-form">
+            <!-- register form header -->
+            <div class="register-form__header">
+              <h3 class="register-form__heading">Đăng ký</h3>
+              <div class="register-form__exit-btn" onclick="hideRegisterFormFnc();">
+                <ion-icon name="close"></ion-icon>
+              </div>
+            </div>
+
+            <!-- register form body -->
+            <div class="register-form__body">
+              <span class="register-form__span">Họ và tên</span>
+              <input type="text" class="register-form__name-input register-form__field" placeholder="Nhập tên của bạn">
+              <span class="register-form__span">Số điện thoại</span>
+              <input type="tel" class="register-form__tel register-form__field" placeholder="Nhập số điện thoại">
+              <span class="register-form__span">Tên tài khoản</span>
+              <input type="text" class="register-form__id-input register-form__field" placeholder="Nhập tên tài khoản">
+              <span class="register-form__span">Mật khẩu</span>
+              <input type="password" class="register-form__password register-form__field" placeholder="Nhập mật khẩu">
+              <span class="register-form__span">Xác nhận mật khẩu</span>
+              <input type="passsword" class="register-form__password-comfirm register-form__field" placeholder="Nhập lại mật khẩu">
+            </div>
+
+            <!-- register form footer -->
+            <div class="register-form__footer">
+              <input type="button" class="register-form__btn" value="Đăng ký" onclick="hideRegisterFormFnc();">
+            </div>
+          </form>
+
+          <form id="login-form-id" class="login-form">
+            <!-- login form header -->
+            <div class="login-form__header">
+              <h3 class="login-form__heading">Đăng nhập</h3>
+              <div id=" login-form__exit-btn-id" class="login-form__exit-btn" onclick="hideLoginFormFnc();">
+                <ion-icon name="close"></ion-icon>
+              </div>
+            </div>
+
+            <!-- login form body -->
+            <div class="login-form__body">
+              <span class="login-form__span">Tên tài khoản</span>
+              <input type="text" class="login-form__id-input login-form__field" placeholder="Nhập tên tài khoản" value="">
+              <span class="login-form__span">Mật khẩu</span>
+              <input id="login-form__password" type="password" class="login-form__password login-form__field" placeholder="Nhập mật khẩu" value="">
+            </div>
+
+            <!-- login form footer -->
+            <div class="login-form__footer">
+              <input type="button" class="login-form__btn" value="Đăng nhập" onclick="hideLoginFormFnc();">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- icon pack -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <!-- app script -->
+  <script src="./access/javascript/main.js"></script>
+
+</body>
+
+</html>
