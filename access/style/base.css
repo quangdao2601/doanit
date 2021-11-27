@@ -47,3 +47,24 @@ html {
   border-radius: 4px;
   z-index: 20;
 }
+
+.btn {
+  border: 1px solid #aaa;
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.28);
+}
+
+.btn-hover-8 {
+  transition: linear 200ms;
+}
+
+.btn-hover-8:hover {
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.28);
+}

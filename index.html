@@ -2,19 +2,19 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Đồ án môn học</title>
-  <link rel="stylesheet" href="./access/style/base.css">
-  <link rel="stylesheet" href="./access/style/gridLayout.css">
-  <link rel="stylesheet" href="./access/style/main.css">
-  <link rel="stylesheet" href="./access/style/responsive.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-  <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-  <link rel="stylesheet" href="./access/icon_pack/themify-icons.css">
+  <link rel="stylesheet" href="./access/style/base.css" />
+  <link rel="stylesheet" href="./access/style/gridLayout.css" />
+  <link rel="stylesheet" href="./access/style/main.css" />
+  <link rel="stylesheet" href="./access/style/responsive.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./access/icon_pack/themify-icons.css" />
 </head>
 
 <body>
@@ -40,7 +40,7 @@
           <!-- page header logo -->
           <div class="page-header-logo">
             <a href="#" class="page-header-logo-link">
-              <img src="./access/image/header_logo/logo.png" alt="LOGO" class="page-header-logo-img">
+              <img src="./access/image/header_logo/logo.png" alt="LOGO" class="page-header-logo-img" />
             </a>
           </div>
 
@@ -50,13 +50,41 @@
             <div class="page-header-top__right-search">
               <ion-icon class="page-header-search-icon" name="search-outline"></ion-icon>
               <div class="page-header-search-box">
-                <input id="page-header-search-field" type="text" class="page-header-search-field" placeholder="Tìm kiếm...">
+                <input id="page-header-search-field" type="text" class="page-header-search-field" placeholder="Tìm kiếm..." />
                 <ion-icon class="page-header-search-nav-icon" name="search-outline"></ion-icon>
               </div>
             </div>
             <!-- header cart button -->
             <div class="page-header-top__right-cart page-header-item-hover">
               <ion-icon class="page-header-cart-icon" name="cart-outline"></ion-icon>
+              <!-- cart box -->
+              <div id="page-header-top__right-cart-box-id" class="page-header-top__right-cart-box">
+                <!-- cart have item -->
+                <div class="page-header-top__right-cart-title">Giỏ hàng</div>
+                <div class="page-header-top__right-cart-container">
+                  <!-- cart item -->
+                  <div class="page-header-top__right-cart-item">
+                    <img src="./access/image/product/nike-boston.jpg" alt="" class="page-header-top__right-cart-img" />
+                    <div class="page-header-top__right-cart-info">
+                      <div class="page-header-top__right-cart-name">Tên SP</div>
+                      <div class="page-header-top__right-cart-quantity">SL: <span>2</span></div>
+                      <div class="page-header-top__right-cart-total-price">Thành tiền: <span>1000$</span></div>
+                    </div>
+                    <div class="page-header-top__right-cart-remove">
+                      <button class="page-header-top__right-cart-remove-btn">Xoá</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="page-header-top__right-cart-pay">
+                  <button class="page-header-top__right-cart-pay-btn btn">Thanh toán</button>
+                </div>
+
+                <!-- cart have no item -->
+                <!-- <div class="page-header-top__right-cart-show empty-cart">
+                    <div class="page-header-top__right-cart-empty-noti">Giỏ hàng trống</div>
+                  </div> -->
+              </div>
             </div>
           </div>
         </div>
@@ -80,10 +108,8 @@
             <!-- product navbar -->
             <li class="page-header-navbar-item page-header-navbar-prod">
               <a href="#" class="page-header-navbar-link page-header-navbar-product">
-                <span>
-                  Sản phẩm
-                </span>
-                <i class='bx bx-chevron-down page-header-product-icon'></i>
+                <span> Sản phẩm </span>
+                <i class="bx bx-chevron-down page-header-product-icon"></i>
               </a>
               <!-- product subnav -->
               <ul class="page-header-product-subnav">
@@ -123,10 +149,16 @@
         <div class="about-section">
           <h1 class="about-title">giới thiệu</h1>
           <div class="about-detail">
-            Mở đầu tác phẩm là không khí căng thẳng, ngột ngạt của một làng quê trong những ngày sưu thuế. Tiếng trống mõ, tù và inh ỏi, tiếng thét lác, đánh đập, tiếng kêu khóc vang lên như trong một cuộc săn người. Gia đình chị Dậu thuộc loại “nhất nhì trong hạng cùng đinh” nên mấy hôm nay chị
-            phải chạy vạy ngược xuôi để có tiền nộp suất sưu cho anh Dậu. Anh Dậu đang ốm cũng bị bọn tay sai xông đến đánh trói, lôi ra đình cùm kẹp. Chị đành phải rứt ruột đem cái Tí, đứa con gái đầu lòng 7 tuổi, bán cho lão Nghị Quế bên thôn Đoài. Ngờ đâu chị lại còn buộc phải nộp cả suất sưu của
-            người em chồng đã chết từ năm ngoái! Thật là cùng đường. Giữa đình làng, tiếng kêu uất ức của chị vang lên thảm thiết. Đêm hôm ấy, người ta cõng anh Dậu rũ rượi như một xác chết ở ngoài đình về trả cho chị. Gọi mãi anh không tỉnh chị vô cùng hoảng sợ, đau đớn. May sao, nhờ bà con xung
-            quanh xúm đến cứu giúp, anh Dậu đã từ từ mở mắt. Một bà lão hàng xóm ái ngại cảnh cả nhà chị nhịn đói suốt từ hôm qua, mang đến cho chị bát gạo để nấu cháo...
+            Mở đầu tác phẩm là không khí căng thẳng, ngột ngạt của một làng quê trong những ngày sưu thuế. Tiếng trống
+            mõ, tù và inh ỏi, tiếng thét lác, đánh đập, tiếng kêu khóc vang lên như trong một cuộc săn người. Gia đình
+            chị Dậu thuộc loại “nhất nhì trong hạng cùng đinh” nên mấy hôm nay chị phải chạy vạy ngược
+            xuôi để có tiền nộp suất sưu cho anh Dậu. Anh Dậu đang ốm cũng bị bọn tay sai xông đến đánh trói, lôi ra
+            đình cùm kẹp. Chị đành phải rứt ruột đem cái Tí, đứa con gái đầu lòng 7 tuổi, bán cho lão Nghị Quế bên thôn
+            Đoài. Ngờ đâu chị lại còn buộc phải nộp cả suất sưu của người em chồng đã chết từ năm ngoái!
+            Thật là cùng đường. Giữa đình làng, tiếng kêu uất ức của chị vang lên thảm thiết. Đêm hôm ấy, người ta cõng
+            anh Dậu rũ rượi như một xác chết ở ngoài đình về trả cho chị. Gọi mãi anh không tỉnh chị vô cùng hoảng sợ,
+            đau đớn. May sao, nhờ bà con xung quanh xúm đến cứu giúp, anh Dậu đã từ từ mở mắt. Một bà
+            lão hàng xóm ái ngại cảnh cả nhà chị nhịn đói suốt từ hôm qua, mang đến cho chị bát gạo để nấu cháo...
           </div>
         </div>
 
@@ -144,31 +176,49 @@
 
                   <!-- product type list -->
                   <ul id="product-type-list-id" class="product-type-list">
+                    <!-- Minh hoạ code -->
                     <!-- <li class="product-type__item">
-                      <a href="" class="product-type__item-link">Item 1</a>
-                    </li>
-                    <li class="product-type__item product-type__item--actived">
-                      <a href="" class="product-type__item-link">Item 2</a>
-                    </li> -->
+                        <a href="" class="product-type__item-link">Item 1</a>
+                      </li>
+                      <li class="product-type__item product-type__item--actived">
+                        <a href="" class="product-type__item-link">Item 2</a>
+                      </li> -->
                   </ul>
                 </div>
               </div>
 
               <div class="grid__col-10">
                 <div id="home-product-id" class="home-product">
-                  <!-- <div class="grid">
-                    <div class="grid__row">
-                      <div class="grid__col-4">
-                        Item
-                      </div>
-                      <div class="grid__col-4">
-                        Item
-                      </div>
-                      <div class="grid__col-4">
-                        Item
-                      </div>
-                    </div>
-                  </div> -->
+                  <div class="grid">
+                    <!-- Minh hoạ code -->
+                    <!-- <div class="grid__row">
+                        <div class="grid__col-4">
+                          <div class="home-product__item">
+                            <a href="" class="home-product__item-link">
+                              <img src="./access/image/product/nike-boston.jpg" alt="" class="home-product__item-img" />
+                            </a>
+                            <div class="home-product__item-container">
+                              <div class="home-product__item-title">Áo khoác Nike Boston not pha ke</div>
+                              <div class="home-product__item-price">price: <span>1,000$</span></div>
+                              <div class="home-product__item-sale">sale: 1,000,000$</div>
+                              <div class="home-product__item-btn-field">
+                                <button class="home-product__item-cart-insert btn">Thêm vào giỏ hàng</button>
+                                <a href="#" class="home-product__item-link-btn">
+                                  <button class="home-product__item-buy-btn btn">Mua</button>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div> -->
+                  </div>
+                </div>
+                <div class="home-product-pagination">
+                  <div class="home-product-pagination-prev">prev</div>
+                  <div class="home-product-pagination-page">1</div>
+                  <div class="home-product-pagination-page">2</div>
+                  <div class="home-product-pagination-page">3</div>
+                  <div class="home-product-pagination-next">next</div>
                 </div>
               </div>
             </div>
@@ -177,16 +227,13 @@
       </div>
 
       <!-- page footer -->
-      <div id="page-footer">
-        footer
-      </div>
+      <div id="page-footer">footer</div>
     </div>
 
     <!-- modal layout -->
     <div id="modal-id" class="modal">
       <!-- modal overlay -->
-      <div class="modal__overlay">
-      </div>
+      <div class="modal__overlay"></div>
 
       <!-- modal body -->
       <div class="modal__body">
@@ -204,20 +251,20 @@
             <!-- register form body -->
             <div class="register-form__body">
               <span class="register-form__span">Họ và tên</span>
-              <input type="text" class="register-form__name-input register-form__field" placeholder="Nhập tên của bạn">
+              <input type="text" class="register-form__name-input register-form__field" placeholder="Nhập tên của bạn" />
               <span class="register-form__span">Số điện thoại</span>
-              <input type="tel" class="register-form__tel register-form__field" placeholder="Nhập số điện thoại">
+              <input type="tel" class="register-form__tel register-form__field" placeholder="Nhập số điện thoại" />
               <span class="register-form__span">Tên tài khoản</span>
-              <input type="text" class="register-form__id-input register-form__field" placeholder="Nhập tên tài khoản">
+              <input type="text" class="register-form__id-input register-form__field" placeholder="Nhập tên tài khoản" />
               <span class="register-form__span">Mật khẩu</span>
-              <input type="password" class="register-form__password register-form__field" placeholder="Nhập mật khẩu">
+              <input type="password" class="register-form__password register-form__field" placeholder="Nhập mật khẩu" />
               <span class="register-form__span">Xác nhận mật khẩu</span>
-              <input type="password" class="register-form__password-comfirm register-form__field" placeholder="Nhập lại mật khẩu">
+              <input type="password" class="register-form__password-comfirm register-form__field" placeholder="Nhập lại mật khẩu" />
             </div>
 
             <!-- register form footer -->
             <div class="register-form__footer">
-              <input type="button" class="register-form__btn" value="Đăng ký" onclick="hideRegisterFormFnc();">
+              <input type="button" class="register-form__btn btn-hover-8" value="Đăng ký" onclick="hideRegisterFormFnc();" />
             </div>
           </form>
 
@@ -233,14 +280,14 @@
             <!-- login form body -->
             <div class="login-form__body">
               <span class="login-form__span">Tên tài khoản</span>
-              <input type="text" class="login-form__id-input login-form__field" placeholder="Nhập tên tài khoản" value="">
+              <input type="text" class="login-form__id-input login-form__field" placeholder="Nhập tên tài khoản" value="" />
               <span class="login-form__span">Mật khẩu</span>
-              <input id="login-form__password" type="password" class="login-form__password login-form__field" placeholder="Nhập mật khẩu" value="">
+              <input id="login-form__password" type="password" class="login-form__password login-form__field" placeholder="Nhập mật khẩu" value="" />
             </div>
 
             <!-- login form footer -->
             <div class="login-form__footer">
-              <input type="button" class="login-form__btn" value="Đăng nhập" onclick="hideLoginFormFnc();">
+              <input type="button" class="login-form__btn btn-hover-8" value="Đăng nhập" onclick="hideLoginFormFnc();" />
             </div>
           </form>
         </div>
@@ -254,7 +301,6 @@
 
   <!-- apps script -->
   <script src="./access/javascript/main.js"></script>
-
 </body>
 
 </html>
