@@ -1,4 +1,5 @@
 {
   "editor.wordWrapColumn": 300,
-  "editor.accessibilitySupport": "off"
+  "editor.accessibilitySupport": "off",
+  "prettier.printWidth": 320
 }

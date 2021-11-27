@@ -38,7 +38,19 @@ function setProductItem(typeID, productID, name, price, sale) {
 // type list
 var arrType = [new setProductType("nike-id", "Nike"), new setProductType("adidas", "Adidas"), new setProductType("fila", "Fila"), new setProductType("champion", "Champion")];
 
-var arrProduct = [new setProductItem("nike-id", "nike-01", "nike 01", "1000$", "800$"), new setProductItem("nike-id", "nike-02", "nike 02", "2000$", "900$"), new setProductItem("nike-id", "nike-03", "nike 03", "3000$", "1000$"), new setProductItem("nike-id", "nike-04", "nike 04", "4000$", "1100$"), new setProductItem("nike-id", "nike-05", "nike 05", "5000$", "1200$"), new setProductItem("nike-id", "nike-06", "nike 06", "6000$", "1300$"), new setProductItem("nike-id", "nike-07", "nike 07", "7000$", "1400$"), new setProductItem("nike-id", "nike-08", "nike 08", "8000$", "1500$"), new setProductItem("nike-id", "nike-09", "Nike 09", "999$", "1000$"), new setProductItem("nike-id", "nike-10", "nike 10", "250$", "1000$"), new setProductItem("nike-id", "nike-11", "Nike 11", "1$", "100$")];
+var arrProduct = [
+  new setProductItem("nike-id", "nike-01", "nike 01", "1000$", "800$"),
+  new setProductItem("nike-id", "nike-02", "nike 02", "2000$", "900$"),
+  new setProductItem("nike-id", "nike-03", "nike 03", "3000$", "1000$"),
+  new setProductItem("nike-id", "nike-04", "nike 04", "4000$", "1100$"),
+  new setProductItem("nike-id", "nike-05", "nike 05", "5000$", "1200$"),
+  new setProductItem("nike-id", "nike-06", "nike 06", "6000$", "1300$"),
+  new setProductItem("nike-id", "nike-07", "nike 07", "7000$", "1400$"),
+  new setProductItem("nike-id", "nike-08", "nike 08", "8000$", "1500$"),
+  new setProductItem("nike-id", "nike-09", "Nike 09", "999$", "1000$"),
+  new setProductItem("nike-id", "nike-10", "nike 10", "250$", "1000$"),
+  new setProductItem("nike-id", "nike-11", "Nike 11", "1$", "100$"),
+];
 
 // show product type list onload
 function showProductTypeListFnc() {
