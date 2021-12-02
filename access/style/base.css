@@ -2,6 +2,7 @@
   --white-color: #fff;
   --text-color: #333;
   --border-color: #838383;
+  --icon-color: red;
 }
 
 * {
@@ -16,6 +17,7 @@ html {
   line-height: 1.6rem;
   font-family: "Roboto", sans-serif;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 /* modal style */

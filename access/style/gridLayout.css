@@ -1,6 +1,7 @@
 /* grid layout */
+
 .grid {
-  width: 1200px;
+  width: 1250px;
   max-width: 100%;
   margin: 0 auto;
 }
@@ -10,28 +11,36 @@
 }
 
 /* grid row */
+
 .grid__row {
   display: flex;
   flex-wrap: wrap;
-  margin-left: -12px;
-  margin-right: -12px;
+  margin-left: -8px;
+  margin-right: -8px;
 }
 
 /* grid column */
+
 .grid__col-2 {
-  padding-left: 12px;
-  padding-right: 12px;
+  padding-left: 8px;
+  padding-right: 8px;
   width: 16.66667%;
 }
 
 .grid__col-10 {
-  padding-left: 12px;
-  padding-right: 12px;
+  padding-left: 8px;
+  padding-right: 8px;
   width: 83.33333%;
 }
 
 .grid__col-4 {
-  padding-left: 12px;
-  padding-right: 12px;
+  padding-left: 8px;
+  padding-right: 8px;
   width: 33.33333%;
+}
+
+.grid__col-2-4 {
+  padding-left: 8px;
+  padding-right: 8px;
+  width: 20%;
 }
