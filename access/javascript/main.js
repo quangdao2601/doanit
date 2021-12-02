@@ -79,10 +79,8 @@ function showProductTypeListFnc() {
   document.getElementById("product-type-list-id").innerHTML = listType;
 }
 
-var tempProductArr = [];
-
-// show home product list
-function showHomeProductList(pageNumber, maxIndex, arrProduct) {
+var tempProductArr = []; // show home product list
+function showHomeProductList(pageNumber, maxIndex, arrProduct, noOfPages) {
   var productRow = "";
   var k = maxIndex * pageNumber;
   var t = 0;
@@ -117,6 +115,13 @@ function showHomeProductList(pageNumber, maxIndex, arrProduct) {
   }
 
   document.getElementById("home-product-id").innerHTML = '<div class="grid">' + productRow + "</div>";
+  for (let i = 0; i < noOfPages; i++) {
+    if (i == pageNumber) {
+      document.getElementById("paginationPageNumber-" + pageNumber).classList.add("home-product-pagination-page--actived");
+    } else {
+      document.getElementById("paginationPageNumber-" + i).classList.remove("home-product-pagination-page--actived");
+    }
+  }
 }
 
 function cartAddItem(id) {
@@ -285,12 +290,12 @@ function showHomeProductPagination() {
     numberOfPages++;
   }
 
-  var prevArrow = '<div class="home-product-pagination-prev">' + '<ion-icon name="chevron-back-outline"></ion-icon>' + "</div>";
-  var nextArrow = '<div class="home-product-pagination-next">' + '<ion-icon name="chevron-forward-outline"></ion-icon>' + "</div>";
+  var prevArrow = '<a class="home-product-pagination-prev">' + '<ion-icon name="chevron-back-outline"></ion-icon>' + "</a>";
+  var nextArrow = '<a class="home-product-pagination-next">' + '<ion-icon name="chevron-forward-outline"></ion-icon>' + "</a>";
 
   var paginationPage = "";
   for (let i = 0; i < numberOfPages; i++) {
-    var paginationPageNumber = '<a href="#product-section-id" class="home-product-pagination-page" onclick="showHomeProductList(' + i + ', 15, arrProduct);">' + parseInt(i + 1) + "</a>";
+    var paginationPageNumber = '<a id="paginationPageNumber-' + i + '" href="#product-section-id" class="home-product-pagination-page" onclick="showHomeProductList(' + i + ", 15, arrProduct," + numberOfPages + ');">' + parseInt(i + 1) + "</a>";
     paginationPage += paginationPageNumber;
   }
 
@@ -311,7 +316,7 @@ function test(a) {
 function onloadFnc() {
   showProductTypeListFnc();
   showHomeProductPagination();
-  showHomeProductList(0, 15, arrProduct);
+  showHomeProductList(0, 15, arrProduct, 1);
   showCartItemList();
   createadmin();
 }

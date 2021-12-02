@@ -748,7 +748,7 @@
   justify-content: center;
 }
 
-.home-product-pagination > div:hover {
+.home-product-pagination > a:hover {
   color: red;
   cursor: pointer;
 }
