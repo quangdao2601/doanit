@@ -134,7 +134,7 @@ function addproduct() {
       productID: code,
       name: name,
       price: price,
-      image: imgp,
+      img: imgp,
     };
     listproduct.push(info_product);
     localStorage.setItem("listproduct", JSON.stringify(listproduct));

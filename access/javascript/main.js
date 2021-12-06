@@ -42,7 +42,6 @@ function setCartItem(cartID, product) {
 }
 
 // type list
-// var arrType = [new setProductType("nike-id", "Nike"), new setProductType("adidas", "Adidas"), new setProductType("fila", "Fila"), new setProductType("champion", "Champion")];
 
 function createType() {
   var arrType = [new setProductType("nike-id", "Nike"), new setProductType("adidas", "Adidas"), new setProductType("fila", "Fila"), new setProductType("champion", "Champion")];
@@ -50,28 +49,6 @@ function createType() {
     localStorage.setItem("listype", JSON.stringify(arrType));
   }
 }
-
-// var arrProduct = [
-//   new setProductItem("nike-id", "nike-01", "nike 01", "1000", "1000000"),
-//   new setProductItem("nike-id", "nike-02", "nike 02", "2000", "900"),
-//   new setProductItem("nike-id", "nike-03", "nike 03", "3000", "1000"),
-//   new setProductItem("nike-id", "nike-04", "nike 04", "4000", "1100"),
-//   new setProductItem("nike-id", "nike-05", "nike 05", "5000", "1200"),
-//   new setProductItem("nike-id", "nike-06", "nike 06", "6000", "1300"),
-//   new setProductItem("nike-id", "nike-07", "nike 07", "7000", "1400"),
-//   new setProductItem("nike-id", "nike-08", "nike 08", "8000", "1500"),
-//   new setProductItem("nike-id", "nike-09", "Nike 09", "999", "1000"),
-//   new setProductItem("nike-id", "nike-10", "nike 10", "250", "1000"),
-//   new setProductItem("nike-id", "nike-11", "Nike 11", "1", "100"),
-//   new setProductItem("nike-id", "nike-12", "Nike 12", "1", "1000"),
-//   new setProductItem("nike-id", "nike-13", "Nike 13", "1", "999"),
-//   new setProductItem("nike-id", "nike-14", "Nike 14", "1", "1001"),
-//   new setProductItem("nike-id", "nike-15", "Nike 15", "1", "1002"),
-//   new setProductItem("nike-id", "nike-16", "Nike 16", "1", "1003"),
-//   new setProductItem("nike-id", "nike-17", "Nike 17", "1", "1004"),
-//   new setProductItem("nike-id", "nike-18", "Nike 18", "1", "10000"),
-//   new setProductItem("nike-id", "nike-19", "Nike 19", "1", "10"),
-// ];
 
 var arrProduct = [];
 
@@ -88,20 +65,25 @@ function createProduct() {
     new setProductItem("nike-id", "nike-09", "Nike 09", "999", "1000", "add-1.jpg"),
     new setProductItem("nike-id", "nike-10", "nike 10", "250", "1000", "add-2.jpg"),
     new setProductItem("nike-id", "nike-11", "Nike 11", "1", "100", "nike-1.jpg"),
+    new setProductItem("nike-id", "nike-12", "Nike 12", "1", "100", "nike-1.jpg"),
+    new setProductItem("nike-id", "nike-14", "Nike 14", "1", "100", "nike-1.jpg"),
+    new setProductItem("nike-id", "nike-13", "Nike 13", "1", "100", "nike-1.jpg"),
+    new setProductItem("nike-id", "nike-15", "Nike 15", "5", "100", "nike-1.jpg"),
+    new setProductItem("nike-id", "nike-16", "Nike 16", "5", "100", "nike-1.jpg"),
   ];
   if (localStorage.getItem("listproduct") == null) {
     localStorage.setItem("listproduct", JSON.stringify(arrProduct));
   }
 }
 
-var cartArr = [new setCartItem("cart-01", arrProduct[0]), new setCartItem("cart-01", arrProduct[1]), new setCartItem("cart-01", arrProduct[2])];
-
 // show product type list onload
 function showProductTypeListFnc() {
   listType = "";
 
-  for (let i = 0; i < arrType.length; i++) {
-    var type = '<li class="product-type__item id="' + arrType[i].typeID + '" "><a href="" class="product-type__item-link">' + arrType[i].type + "</a></li>";
+  arrayType = JSON.parse(localStorage.getItem("listype"));
+
+  for (let i = 0; i < arrayType.length; i++) {
+    var type = '<li class="product-type__item"  id="' + arrayType[i].typeID + '" onclick"showHomeProductList(0,15,1)"><a href="#home-product-id" class="product-type__item-link">' + arrayType[i].type + "</a></li>";
     listType += type;
   }
 
@@ -109,23 +91,33 @@ function showProductTypeListFnc() {
 }
 
 var tempProductArr = []; // show home product list
-function showHomeProductList(pageNumber, maxIndex, arrProduct, noOfPages) {
+// hiển thị sản phẩm từ file JSON
+function showHomeProductList(pageNumber, maxIndex, noOfPages) {
   var productRow = "";
   var k = maxIndex * pageNumber;
   var t = 0;
 
+  console.log("k=" + k);
+
+  var arrayProduct = JSON.parse(localStorage.getItem("listproduct"));
+
+  // console.log(arrayProduct);
+
   for (let i = 0; i < 3; i++) {
-    if (arrProduct[k] == null) {
+    if (arrayProduct[k] == null) {
       break;
     } else {
       var productCols = "";
       for (let j = 0; j < 5; j++) {
-        if (arrProduct[k] == null) {
+        if (arrayProduct[k] == null) {
           break;
         } else {
-          tempProductArr[t] = arrProduct[k];
+          tempProductArr[t] = arrayProduct[k];
+          console.log(tempProductArr[t].img);
           var productCol =
-            '<div class="grid__col-2-4"><div class="home-product__item"><a href="" class="home-product__item-link"><img src="./access/image/product/nike-boston.jpg" alt="" class="home-product__item-img" /></a><!-- product detail --><div class="home-product__item-container"><div class="home-product__item-title">' +
+            '<div class="grid__col-2-4"><div class="home-product__item"><a href="" class="home-product__item-link"><img src="./access/image/product/' +
+            tempProductArr[t].img +
+            '" alt="product image" class="home-product__item-img" /></a><!-- product detail --><div class="home-product__item-container"><div class="home-product__item-title">' +
             tempProductArr[t].name +
             '</div><div class="home-product__item-price">Giá gốc: <span>' +
             tempProductArr[t].price +
@@ -144,13 +136,14 @@ function showHomeProductList(pageNumber, maxIndex, arrProduct, noOfPages) {
   }
 
   document.getElementById("home-product-id").innerHTML = '<div class="grid">' + productRow + "</div>";
-  for (let i = 0; i < noOfPages; i++) {
-    if (i == pageNumber) {
-      document.getElementById("paginationPageNumber-" + pageNumber).classList.add("home-product-pagination-page--actived");
-    } else {
-      document.getElementById("paginationPageNumber-" + i).classList.remove("home-product-pagination-page--actived");
-    }
-  }
+
+  // for (let i = 0; i < noOfPages; i++) {
+  //   if (i == pageNumber) {
+  //     document.getElementById("paginationPageNumber-" + pageNumber).classList.add("home-product-pagination-page--actived");
+  //   } else {
+  //     document.getElementById("paginationPageNumber-" + i).classList.remove("home-product-pagination-page--actived");
+  //   }
+  // }
 }
 
 function cartAddItem(id) {
@@ -328,10 +321,11 @@ function createAdmin() {
 
 function showHomeProductPagination() {
   // find number of pages
-  var numberOfPages = (arrProduct.length - (arrProduct.length % 15)) / 15;
+
+  var numberOfPages = (20 - (20 % 15)) / 15;
 
   // find leftItemsQuantity
-  var quantityOfPageLeft = arrProduct.length - numberOfPages * 15;
+  var quantityOfPageLeft = 20 - numberOfPages * 15;
 
   if (quantityOfPageLeft > 0) {
     numberOfPages++;
@@ -342,7 +336,7 @@ function showHomeProductPagination() {
 
   var paginationPage = "";
   for (let i = 0; i < numberOfPages; i++) {
-    var paginationPageNumber = '<a id="paginationPageNumber-' + i + '" href="#product-section-id" class="home-product-pagination-page" onclick="showHomeProductList(' + i + ", 15, arrProduct," + numberOfPages + ');">' + parseInt(i + 1) + "</a>";
+    var paginationPageNumber = '<a id="paginationPageNumber-' + i + '" href="#product-section-id" class="home-product-pagination-page" onclick="showHomeProductList(' + i + ", 15," + numberOfPages + ');">' + parseInt(i + 1) + "</a>";
     paginationPage += paginationPageNumber;
   }
 
@@ -387,7 +381,7 @@ function isLogin() {
 }
 
 function onloadFnc() {
-  // createFormLogin();
+  createFormLogin();
   createAdmin();
   isLogin();
   // console.log(adminArray);
@@ -395,9 +389,9 @@ function onloadFnc() {
   createType();
   createProduct();
 
-  showProductTypeListFnc();
+  showHomeProductList(0, 15, 1);
   showHomeProductPagination();
-  showHomeProductList(0, 15, arrProduct, 1);
+  showProductTypeListFnc();
   showCartItemList();
 }
 
