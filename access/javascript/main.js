@@ -76,14 +76,18 @@ function createProduct() {
   }
 }
 
+var txtType = "";
+var correctTypeProductArr = [];
+
 // show product type list onload
 function showProductTypeListFnc() {
-  listType = "";
+  var listType = "";
 
   arrayType = JSON.parse(localStorage.getItem("listype"));
 
   for (let i = 0; i < arrayType.length; i++) {
-    var type = '<li class="product-type__item"  id="' + arrayType[i].typeID + '" onclick"showHomeProductList(0,15,1)"><a href="#home-product-id" class="product-type__item-link">' + arrayType[i].type + "</a></li>";
+    txtType = "'" + arrayType[i].typeID + "'";
+    var type = '<li class="product-type__item"  id="' + arrayType[i].typeID + '" onclick="showHomeProductList(0,15,1,' + txtType + ');"><a href="#home-product-id" class="product-type__item-link">' + arrayType[i].type + "</a></li>";
     listType += type;
   }
 
@@ -92,28 +96,40 @@ function showProductTypeListFnc() {
 
 var tempProductArr = []; // show home product list
 // hiển thị sản phẩm từ file JSON
-function showHomeProductList(pageNumber, maxIndex, noOfPages) {
+function showHomeProductList(pageNumber, maxIndex, noOfPages, typeID) {
   var productRow = "";
   var k = maxIndex * pageNumber;
   var t = 0;
 
-  console.log("k=" + k);
+  // console.log("k=" + k);
 
-  var arrayProduct = JSON.parse(localStorage.getItem("listproduct"));
+  var originalArray = JSON.parse(localStorage.getItem("listproduct"));
+  if (typeID === "all") {
+    for (let i = 0; i < originalArray.length; i++) {
+      correctTypeProductArr[i] = originalArray[i];
+    }
+  } else {
+    var j = 0;
+    for (let i = 0; i < originalArray.length; i++) {
+      if (originalArray[i].typeID === typeID) {
+        correctTypeProductArr[j] = originalArray[i];
+        j++;
+      }
+    }
+  }
 
-  // console.log(arrayProduct);
+  // console.log(correctTypeProductArr);
 
   for (let i = 0; i < 3; i++) {
-    if (arrayProduct[k] == null) {
+    if (correctTypeProductArr[k] == null) {
       break;
     } else {
       var productCols = "";
       for (let j = 0; j < 5; j++) {
-        if (arrayProduct[k] == null) {
+        if (correctTypeProductArr[k] == null) {
           break;
         } else {
-          tempProductArr[t] = arrayProduct[k];
-          console.log(tempProductArr[t].img);
+          tempProductArr[t] = correctTypeProductArr[k];
           var productCol =
             '<div class="grid__col-2-4"><div class="home-product__item"><a href="" class="home-product__item-link"><img src="./access/image/product/' +
             tempProductArr[t].img +
@@ -319,13 +335,13 @@ function createAdmin() {
   }
 }
 
-function showHomeProductPagination() {
+function showHomeProductPagination(txtType) {
   // find number of pages
 
-  var numberOfPages = (20 - (20 % 15)) / 15;
+  var numberOfPages = (correctTypeProductArr.length - (correctTypeProductArr.length % 15)) / 15;
 
   // find leftItemsQuantity
-  var quantityOfPageLeft = 20 - numberOfPages * 15;
+  var quantityOfPageLeft = correctTypeProductArr.length - numberOfPages * 15;
 
   if (quantityOfPageLeft > 0) {
     numberOfPages++;
@@ -336,7 +352,7 @@ function showHomeProductPagination() {
 
   var paginationPage = "";
   for (let i = 0; i < numberOfPages; i++) {
-    var paginationPageNumber = '<a id="paginationPageNumber-' + i + '" href="#product-section-id" class="home-product-pagination-page" onclick="showHomeProductList(' + i + ", 15," + numberOfPages + ');">' + parseInt(i + 1) + "</a>";
+    var paginationPageNumber = '<a id="paginationPageNumber-' + i + '" href="#product-section-id" class="home-product-pagination-page" onclick="showHomeProductList(' + i + ", 15," + numberOfPages + "," + txtType + ');">' + parseInt(i + 1) + "</a>";
     paginationPage += paginationPageNumber;
   }
 
@@ -389,7 +405,7 @@ function onloadFnc() {
   createType();
   createProduct();
 
-  showHomeProductList(0, 15, 1);
+  showHomeProductList(0, 15, 1, "all");
   showHomeProductPagination();
   showProductTypeListFnc();
   showCartItemList();
