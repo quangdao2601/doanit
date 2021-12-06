@@ -27,12 +27,13 @@ function setProductType(typeID, type) {
   this.type = type;
 }
 
-function setProductItem(typeID, productID, name, price, sale) {
+function setProductItem(typeID, productID, name, price, sale, img) {
   this.typeID = typeID;
   this.productID = productID;
   this.name = name;
   this.price = price;
   this.sale = sale;
+  this.img = img;
 }
 
 function setCartItem(cartID, product) {
@@ -41,29 +42,57 @@ function setCartItem(cartID, product) {
 }
 
 // type list
-var arrType = [new setProductType("nike-id", "Nike"), new setProductType("adidas", "Adidas"), new setProductType("fila", "Fila"), new setProductType("champion", "Champion")];
+// var arrType = [new setProductType("nike-id", "Nike"), new setProductType("adidas", "Adidas"), new setProductType("fila", "Fila"), new setProductType("champion", "Champion")];
 
-var arrProduct = [
-  new setProductItem("nike-id", "nike-01", "nike 01", "1000", "1000000"),
-  new setProductItem("nike-id", "nike-02", "nike 02", "2000", "900"),
-  new setProductItem("nike-id", "nike-03", "nike 03", "3000", "1000"),
-  new setProductItem("nike-id", "nike-04", "nike 04", "4000", "1100"),
-  new setProductItem("nike-id", "nike-05", "nike 05", "5000", "1200"),
-  new setProductItem("nike-id", "nike-06", "nike 06", "6000", "1300"),
-  new setProductItem("nike-id", "nike-07", "nike 07", "7000", "1400"),
-  new setProductItem("nike-id", "nike-08", "nike 08", "8000", "1500"),
-  new setProductItem("nike-id", "nike-09", "Nike 09", "999", "1000"),
-  new setProductItem("nike-id", "nike-10", "nike 10", "250", "1000"),
-  new setProductItem("nike-id", "nike-11", "Nike 11", "1", "100"),
-  new setProductItem("nike-id", "nike-12", "Nike 12", "1", "1000"),
-  new setProductItem("nike-id", "nike-13", "Nike 13", "1", "999"),
-  new setProductItem("nike-id", "nike-14", "Nike 14", "1", "1001"),
-  new setProductItem("nike-id", "nike-15", "Nike 15", "1", "1002"),
-  new setProductItem("nike-id", "nike-16", "Nike 16", "1", "1003"),
-  new setProductItem("nike-id", "nike-17", "Nike 17", "1", "1004"),
-  new setProductItem("nike-id", "nike-18", "Nike 18", "1", "10000"),
-  new setProductItem("nike-id", "nike-19", "Nike 19", "1", "10"),
-];
+function createType() {
+  var arrType = [new setProductType("nike-id", "Nike"), new setProductType("adidas", "Adidas"), new setProductType("fila", "Fila"), new setProductType("champion", "Champion")];
+  if (localStorage.getItem("listype") == null) {
+    localStorage.setItem("listype", JSON.stringify(arrType));
+  }
+}
+
+// var arrProduct = [
+//   new setProductItem("nike-id", "nike-01", "nike 01", "1000", "1000000"),
+//   new setProductItem("nike-id", "nike-02", "nike 02", "2000", "900"),
+//   new setProductItem("nike-id", "nike-03", "nike 03", "3000", "1000"),
+//   new setProductItem("nike-id", "nike-04", "nike 04", "4000", "1100"),
+//   new setProductItem("nike-id", "nike-05", "nike 05", "5000", "1200"),
+//   new setProductItem("nike-id", "nike-06", "nike 06", "6000", "1300"),
+//   new setProductItem("nike-id", "nike-07", "nike 07", "7000", "1400"),
+//   new setProductItem("nike-id", "nike-08", "nike 08", "8000", "1500"),
+//   new setProductItem("nike-id", "nike-09", "Nike 09", "999", "1000"),
+//   new setProductItem("nike-id", "nike-10", "nike 10", "250", "1000"),
+//   new setProductItem("nike-id", "nike-11", "Nike 11", "1", "100"),
+//   new setProductItem("nike-id", "nike-12", "Nike 12", "1", "1000"),
+//   new setProductItem("nike-id", "nike-13", "Nike 13", "1", "999"),
+//   new setProductItem("nike-id", "nike-14", "Nike 14", "1", "1001"),
+//   new setProductItem("nike-id", "nike-15", "Nike 15", "1", "1002"),
+//   new setProductItem("nike-id", "nike-16", "Nike 16", "1", "1003"),
+//   new setProductItem("nike-id", "nike-17", "Nike 17", "1", "1004"),
+//   new setProductItem("nike-id", "nike-18", "Nike 18", "1", "10000"),
+//   new setProductItem("nike-id", "nike-19", "Nike 19", "1", "10"),
+// ];
+
+var arrProduct = [];
+
+function createProduct() {
+  arrProduct = [
+    new setProductItem("nike-id", "nike-01", "nike 01", "1000", "1000000", "nike-1.jpg"),
+    new setProductItem("nike-id", "nike-02", "nike 02", "2000", "900", "nike-2.jpg"),
+    new setProductItem("nike-id", "nike-03", "nike 03", "3000", "1000", "nike-3.jpg"),
+    new setProductItem("nike-id", "nike-04", "nike 04", "4000", "1100", "add-1.jpg"),
+    new setProductItem("nike-id", "nike-05", "nike 05", "5000", "1200", "add-2.jpg"),
+    new setProductItem("nike-id", "nike-06", "nike 06", "6000", "1300", "nike-1.jpg"),
+    new setProductItem("nike-id", "nike-07", "nike 07", "7000", "1400", "nike-2.jpg"),
+    new setProductItem("nike-id", "nike-08", "nike 08", "8000", "1500", "nike-3.jpg"),
+    new setProductItem("nike-id", "nike-09", "Nike 09", "999", "1000", "add-1.jpg"),
+    new setProductItem("nike-id", "nike-10", "nike 10", "250", "1000", "add-2.jpg"),
+    new setProductItem("nike-id", "nike-11", "Nike 11", "1", "100", "nike-1.jpg"),
+  ];
+  if (localStorage.getItem("listproduct") == null) {
+    localStorage.setItem("listproduct", JSON.stringify(arrProduct));
+  }
+}
 
 var cartArr = [new setCartItem("cart-01", arrProduct[0]), new setCartItem("cart-01", arrProduct[1]), new setCartItem("cart-01", arrProduct[2])];
 
@@ -176,16 +205,26 @@ function showCartItemList() {
 
 // check user login
 function login() {
-  var username = document.getElementById("login-form__username").value;
+  var user = [];
+  localStorage.setItem("UserInfo", JSON.stringify(user));
+  user = JSON.parse(localStorage.getItem("UserInfo"));
+  var userName = document.getElementById("login-form__username").value;
   var password = document.getElementById("login-form__password").value;
-  adminarray = JSON.parse(localStorage.getItem("user"));
-  if (username == "" || password == "") {
+  adminArray = JSON.parse(localStorage.getItem("user"));
+  if (userName == "" || password == "") {
     alert("Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu");
   } else {
-    for (i = 0; i < adminarray.length; i++) {
-      if (username == adminarray[i].username && password == adminarray[i].password) {
+    for (i = 0; i < adminArray.length; i++) {
+      if (userName == adminArray[i].userName && password == adminArray[i].password) {
         // window.location = "http://localhost:8080/unitop.vn/Front-end/lambenngoai/web1/do-an-web-1/"
         alert("Dang nhap thanh cong");
+        var info = {
+          userName: userName,
+          fullname: adminArray[i].fullname,
+          userType: adminArray[i].userType,
+        };
+        user.push(info);
+        localStorage.setItem("UserInfo", JSON.stringify(user));
         return location.reload();
       }
     }
@@ -193,23 +232,29 @@ function login() {
   }
 }
 
+// logout
+function logout() {
+  localStorage.removeItem("UserInfo");
+  return location.reload();
+}
+
 // dang ky thanh vien moi
 function reg() {
-  var username = document.getElementById("username").value;
+  var userName = document.getElementById("username").value;
   var phone = document.getElementById("phonenumber").value;
   var fullname = document.getElementById("fullname").value;
   var password = document.getElementById("password").value;
   var password_confim = document.getElementById("password_confirm").value;
   var err_fullname = "";
-  var err_username = "";
+  var err_userName = "";
   var err_phone = "";
   var err_password = "";
-  var err_passwordconfirm = "";
-  if (username == "") {
-    err_username = "<p>Không được bỏ trống username</p>";
+  var err_passwordConfirm = "";
+  if (userName == "") {
+    err_userName = "<p>Không được bỏ trống userName</p>";
   } else {
-    if (username.length < 8 || username > 32) {
-      err_username = "<p>Độ dài từ 8 tới 32 ký tự</p>";
+    if (userName.length < 8 || userName > 32) {
+      err_userName = "<p>Độ dài từ 8 tới 32 ký tự</p>";
     }
   }
 
@@ -232,50 +277,52 @@ function reg() {
     }
   }
   if (password != password_confim) {
-    err_passwordconfirm = "<p>Mật khẩu xác nhận không chính xác</p>";
+    err_passwordConfirm = "<p>Mật khẩu xác nhận không chính xác</p>";
   }
-  document.getElementById("err_username").innerHTML = err_username;
+  document.getElementById("err_userName").innerHTML = err_userName;
   document.getElementById("err_fullname").innerHTML = err_fullname;
   document.getElementById("err_phone").innerHTML = err_phone;
   document.getElementById("err_password").innerHTML = err_password;
-  document.getElementById("err_password-confirm").innerHTML = err_passwordconfirm;
-  if (err_passwordconfirm == "" && err_username == "" && err_fullname == "" && err_password == "" && err_phone == "") {
+  document.getElementById("err_password-confirm").innerHTML = err_passwordConfirm;
+  if (err_passwordConfirm == "" && err_userName == "" && err_fullname == "" && err_password == "" && err_phone == "") {
     var user = {
-      username: username,
+      userName: userName,
       fullname: fullname,
       phone: phone,
       password: password,
-      usertype: "kh",
+      userType: "khachHang",
     };
     userarray = JSON.parse(localStorage.getItem("user"));
     userarray.push(user);
     localStorage.setItem("user", JSON.stringify(userarray));
     alert("Bạn đã đăng ký thành công");
-    window.location = "http://localhost:8080/unitop.vn/Front-end/lambenngoai/web1/do-an-web-1/";
+    // window.location = "http://localhost:8080/unitop.vn/Front-end/lambenngoai/web1/do-an-web-1/";
   }
 }
 
 // tao admin
-function createadmin() {
-  var adminarray = [];
+function createAdmin() {
+  var adminArray = [];
   if (localStorage.getItem("user") == null) {
     var admin1 = {
-      username: "admin",
+      userName: "admin",
       password: "admin",
       fullname: "Tran Quang Dao",
-      datesignup: "23-11-1999",
-      usertype: "admin",
+      dateSignup: "23-11-1999",
+      userType: "admin",
+      phone: "099999999",
     };
     var admin2 = {
-      username: "quangdao",
+      userName: "quangdao",
       password: "quangdao",
       fullname: "Tran Van Dong ",
-      datesignup: "23-11-1999",
-      usertype: "khachhang",
+      dateSignup: "23-11-1999",
+      userType: "khachHang",
+      phone: "099999899",
     };
-    adminarray.push(admin1);
-    adminarray.push(admin2);
-    localStorage.setItem("user", JSON.stringify(adminarray));
+    adminArray.push(admin1);
+    adminArray.push(admin2);
+    localStorage.setItem("user", JSON.stringify(adminArray));
   }
 }
 
@@ -309,16 +356,49 @@ function showHomeProductPagination() {
   document.getElementById("home-product-pagination-id").innerHTML = pagination;
 }
 
-function test(a) {
-  alert(a);
+// onload auto tạo form login reg
+
+function createFormLogin() {
+  var s =
+    '<div id="page-header-top__login" class="page-header-top__login page-header-item-hover"><span class="page-header-login-span" onclick="showLoginFormFnc()">Đăng nhập</span></div><div id="page-header-top__register" class="page-header-top__register page-header-item-hover"><span class="page-header-register-span" onclick="showRegisterFormFnc()">Đăng ký</span></div>';
+  document.getElementById("form_login_reg").innerHTML = s;
+}
+
+function isLogin() {
+  // localStorage.removeItem('UserInfo')
+  if (localStorage.getItem("UserInfo") == null) {
+    createFormLogin();
+  } else {
+    user = JSON.parse(localStorage.getItem("UserInfo"));
+    if (user[0].userType == "khachHang") {
+      s =
+        '<div id="page-header-top__login" class="page-header-top__login page-header-item-hover"><span class="page-header-login-span" >Xin chào: ' +
+        user[0].fullname +
+        '</span> </div> <div id="page-header-top__register" class="page-header-top__register page-header-item-hover"><span class="page-header-register-span" onclick="logout()" >(Đăng xuất)</span></div>';
+      document.getElementById("form_login_reg").innerHTML = s;
+    } else {
+      s =
+        '<div id="page-header-top__login" class="page-header-top__login page-header-item-hover"><span class="page-header-login-span" >Xin chào:' +
+        user[0].fullname +
+        '</span> </div> <div id="page-header-top__register" class="page-header-top__register page-header-item-hover"><span class="page-header-register-span" onclick="logout()" >(Đăng xuất)</span></div><div id="page-header-top__register" class="page-header-top__register page-header-item-hover"><span class="page-header-register-span"><a href="admin.html" ><i class="fas fa-forward"></i></a></span></div>';
+      document.getElementById("form_login_reg").innerHTML = s;
+    }
+  }
 }
 
 function onloadFnc() {
+  // createFormLogin();
+  createAdmin();
+  isLogin();
+  // console.log(adminArray);
+
+  createType();
+  createProduct();
+
   showProductTypeListFnc();
   showHomeProductPagination();
   showHomeProductList(0, 15, arrProduct, 1);
   showCartItemList();
-  createadmin();
 }
 
 window.onload = onloadFnc;

@@ -27,15 +27,16 @@
         <!-- top of header -->
         <div class="page-header-top">
           <!-- left top header side -->
-          <div class="page-header-top__left">
+          <div class="page-header-top__left" id="form_login_reg">
             <!-- login -->
-            <div id="page-header-top__login" class="page-header-top__login page-header-item-hover">
-              <span class="page-header-login-span" onclick="showLoginFormFnc()">Đăng nhập</span>
-            </div>
+            <!-- <div id="page-header-top__login" class="page-header-top__login page-header-item-hover">
+              <span id="page-header-login-span-id" class="page-header-login-span" onclick="showLoginFormFnc()">Đăng nhập</span>
+            </div> -->
+
             <!-- register -->
-            <div id="page-header-top__register" class="page-header-top__register page-header-item-hover">
-              <span class="page-header-register-span" onclick="showRegisterFormFnc()">Đăng ký</span>
-            </div>
+            <!-- <div id="page-header-top__register" class="page-header-top__register page-header-item-hover">
+              <span id="page-header-register-span-id" class="page-header-register-span" onclick="showRegisterFormFnc()">Đăng ký</span>
+            </div> -->
           </div>
 
           <!-- page header logo -->
@@ -356,7 +357,7 @@
               <div id="err_phone"></div>
               <span class="register-form__span">Tên tài khoản</span>
               <input type="text" id="username" class="register-form__id-input register-form__field" placeholder="Nhập tên tài khoản" />
-              <div id="err_username"></div>
+              <div id="err_userName"></div>
               <span class="register-form__span">Mật khẩu</span>
               <input type="password" id="password" class="register-form__password register-form__field" placeholder="Nhập mật khẩu" />
               <div id="err_password"></div>
@@ -367,7 +368,7 @@
 
             <!-- register form footer -->
             <div class="register-form__footer">
-              <input type="button" class="register-form__btn btn-hover-8" value="Đăng ký" onclick="reg()();" />
+              <input type="button" class="register-form__btn btn-hover-8" value="Đăng ký" onclick="reg()" />
             </div>
           </form>
 

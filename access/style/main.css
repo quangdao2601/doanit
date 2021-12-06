@@ -506,7 +506,7 @@
   font-size: 16px;
   padding: 8px;
   margin-top: 4px;
-  margin-bottom: 12px;
+  /* margin-bottom: 8px; */
   border-radius: 4px;
 }
 
@@ -862,12 +862,12 @@ ul.list-item {
 }
 
 #slider {
-  margin-top: 20px;
+  margin-top: 8px;
 }
 
 /* css form err */
 
-#err_username p,
+#err_userName p,
 #err_fullname p,
 #err_phone p,
 #err_password p,
@@ -876,4 +876,5 @@ ul.list-item {
   padding: 5px;
   font-size: 14px;
   color: red;
+  margin-bottom: 16px;
 }

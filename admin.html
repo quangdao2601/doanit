@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đồ án môn học</title>
+  <link rel="stylesheet" href="./access/style/base.css" />
+  <link rel="stylesheet" href="./access/style/gridLayout.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./access/icon_pack/themify-icons.css" />
+  <link rel="stylesheet" href="access/fontawesome/css/all.css" />
+  <link rel="stylesheet" href="access/style/admin.css" />
+  <link rel="stylesheet" href="access/style/main.css">
+  <link rel="stylesheet" href="access/style/responsive.css">
+</head>
+
+<body>
+  <div id="wrapper">
+    <div id="header">FASHION TREND</div>
+    <div id="wp-content">
+      <div class="left">
+        <ul class="list-item">
+          <li id="tc">
+            <a href="index.html" class="backHomePage">Trang chu</a>
+          </li>
+          <li id="sp" onclick="show(this)">Sản phẩm</li>
+          <li id="qtv" onclick="show(this)">Quản trị viên</li>
+          <li id="tk" onclick="show(this)">Thống kê</li>
+        </ul>
+      </div>
+      <div id="" class="content">
+        <div id="list"></div>
+        <div id="paginate"></div>
+
+
+
+      </div>
+
+      <div id="right" class="right">
+      </div>
+
+      <div class="clearfix"></div>
+    </div>
+
+    <div id="footer">footer</div>
+
+
+    <div id="update">
+      <div class="formupdate">
+        <div class="head">
+          <h2>Cập nhật sản phẩm</h2>
+          <i onclick="hide()" class="fas fa-backspace"></i>
+        </div>
+        <label for="">Tên sản phẩm</label>
+        <input type="text" id="nameupdate" value="" placeholder="Tên sản phẩm">
+        <label for="">Gía sản phẩm</label>
+        <input type="text" id="priceupdate" placeholder="Gía sản phẩm">
+        <label for="">Mã sản phẩm</label>
+        <input type="text" id="codeupdate" value="" placeholder="Mã sản phẩm">
+        <label for="">TypeId</label>
+        <input type="text" value="" id="typeIDproduct">
+        <img src="" id="infoproduct" alt="">
+        <input type="submit" class="btn-add" onclick="updateproduct()" value="Cập nhật sản phẩm">
+      </div>
+    </div>
+    <!-- icon pack -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <!-- apps script -->
+    <script src="./access/javascript/main.js"></script>
+    <script src="./access/javascript/admin.js"></script>
+</body>
+
+</html>
