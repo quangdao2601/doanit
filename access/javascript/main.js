@@ -27,6 +27,22 @@ function setProductType(typeID, type) {
   this.type = type;
 }
 
+var listCart = [];
+
+function createCart() {
+  if (localStorage.getItem("lisCart") == null) {
+    localStorage.setItem("listCart", JSON.stringify(createCart));
+  }
+}
+
+function setCart(productID, image, price, name, numOrder) {
+  this.productID = productID;
+  this.image = image;
+  this.price = price;
+  this.name = name;
+  this.numOrder = numOrder;
+}
+
 function setProductItem(typeID, productID, name, price, sale, img, detail) {
   this.detail = detail;
   this.typeID = typeID;
@@ -378,14 +394,6 @@ function showDetail(productID_detail) {
   document.getElementById("home-product-id").innerHTML = s + home;
 }
 
-function setCart(productID, image, price, name, numOrder) {
-  this.productID = productID;
-  this.image = image;
-  this.price = price;
-  this.name = name;
-  this.numOrder = numOrder;
-}
-
 function addProductToCart(thisID) {
   var id = thisID;
   listproduct = JSON.parse(localStorage.getItem("listproduct"));
@@ -520,6 +528,7 @@ function isLogin() {
 }
 
 function onloadFnc() {
+  createCart();
   showCart();
   createFormLogin();
   createAdmin();
