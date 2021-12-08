@@ -22,6 +22,11 @@ function hideRegisterFormFnc() {
   document.getElementById("register-form-id").classList.remove("show-component");
 }
 
+function exitCheckOutFormFNC() {
+  document.getElementById("modal-id").classList.remove("show-component");
+  document.getElementById("form-checkout").classList.remove("cart__display");
+}
+
 function setProductType(typeID, type) {
   this.typeID = typeID;
   this.type = type;
@@ -424,12 +429,17 @@ function addProductToCart(thisID) {
   }
 }
 
+function goToFormCheckout() {
+  document.getElementById("modal-id").classList.add("show-component");
+  document.getElementById("form-checkout").classList.add("cart__display");
+}
+
 function showCart() {
   var cartTitle = '<div class="page-header-top__right-cart-heading">' + '<div class="page-header-top__right-cart-title">Giỏ hàng</div>' + "</div>";
 
   var cartContainerOpenTag = '<div class="page-header-top__right-cart-container">';
   var closeDiv = "</div>";
-  var cartPayment = '<div class="page-header-top__right-cart-pay">' + '<button class="page-header-top__right-cart-pay-btn btn">' + "Thanh toán" + "</button>" + "</div>";
+  var cartPayment = '<div class="page-header-top__right-cart-pay">' + '<button class="page-header-top__right-cart-pay-btn btn" onclick="goToFormCheckout();">' + "Thanh toán" + "</button>" + "</div>";
 
   // document.getElementById("page-header-top__right-cart-box-id").classList.add("cart__display");
   var sum = 0;

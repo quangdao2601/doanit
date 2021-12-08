@@ -364,26 +364,44 @@
           </form>
 
           <div id="form-checkout" class="form-checkout">
+            <div class="form-checkout-header">
+              <h1 class="form-checkout-heading">
+                Thanh toán
+              </h1>
+              <button class="form-checkout-exit-btn btn" onclick="exitCheckOutFormFNC();">
+                <ion-icon name="close"></ion-icon>
+              </button>
+            </div>
             <div id='checkout'>
               <form action='' class='infouser'>
-                <label for=''>Họ và tên</label>
-                <input type='text' id='fullnameuser' value='' placeholder='Họ và tên'>
-                <label for="">Số điện thoại</label>
-                <input type='text' id='phoneuser' value='' placeholder='Số điện thoại'>
-                <label for=''>Địa chỉ giao hàng</label>
-                <textarea name='' id='address' cols='5' placeholder='Địa chỉ giao hàng' rows='5'></textarea>
-                <label for=''>Ghi chú</label>
-                <textarea name='' id='notes' cols='5' rows='5' placeholder='Ghi chú'></textarea>
-                <label for=''>Hình thức thanh toán</label>
+                <label class="form-checkout-label" for=''>Họ và tên</label>
+                <input class="form-check-out-input" type='text' id='fullnameuser' value='' placeholder='Họ và tên'>
+                <label class="form-checkout-label" for="">Số điện thoại</label>
+                <input class="form-check-out-input" type='text' id='phoneuser' value='' placeholder='Số điện thoại'>
+                <label class="form-checkout-label" for=''>Địa chỉ giao hàng</label>
+                <textarea class="form-checkout-textarea" name='' id='address' cols='5' placeholder='Địa chỉ giao hàng' rows='5'></textarea>
+                <label class="form-checkout-label" for=''>Ghi chú</label>
+                <textarea class="form-checkout-textarea" name='' id='notes' cols='5' rows='5' placeholder='Ghi chú'></textarea>
+                <label class="form-checkout-label form-checkout-pay-method" for=''>Hình thức thanh toán</label>
                 <select name='payment' id='payment'>
                   <option value=''>------Chọn------</option>
                   <option value='Thanh toán khi nhận hàng'>Thanh toán khi nhận hàng</option>
                   <option value='Thanh toán qua thẻ'>Thanh toán qua thẻ</option>
                 </select>
-                <input type='submit' name='' onclick="check()" value='Thanh toán' class='btn-checkout'>
+                <input class="form-checkout-submit-btn" type='submit' name='' onclick="check()" value='Thanh toán' class='btn-checkout'>
               </form>
-              <div id='detailCheckout'>
-
+              <div id='detailCheckout' class="detail-checkout">
+                <ul class='listproduct'>
+                  <li>
+                    <div class='thumb'>
+                      <img src='access/image/product/001.jpg' alt=''>
+                    </div>
+                    <div class='moreinfo'>
+                      <p>Số lượng:10</p>
+                    </div>
+                  </li>
+                </ul>
+                <p><strong>Tổng tiền:1000</strong></p>
               </div>
             </div>
           </div>
