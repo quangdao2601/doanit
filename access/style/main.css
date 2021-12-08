@@ -786,6 +786,17 @@
   margin-left: 12px;
 }
 
+.modal {
+  display: flex;
+}
+
+.form-checkout {
+  display: none;
+  position: absolute;
+  background-color: #ccc;
+  z-index: 10;
+}
+
 /* css page footerr */
 
 #page-footer {
