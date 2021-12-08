@@ -430,6 +430,10 @@ function addProductToCart(thisID) {
 }
 
 function goToFormCheckout() {
+  localStorage.getItem("UserInfo");
+  if (localStorage.getItem("UserInfo") === null) {
+    alert;
+  }
   document.getElementById("modal-id").classList.add("show-component");
   document.getElementById("form-checkout").classList.add("cart__display");
 }
