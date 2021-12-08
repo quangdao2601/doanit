@@ -817,6 +817,10 @@
   display: flex;
 }
 
+.cart__display {
+  display: block;
+}
+
 .listproduct {
   list-style: none;
   margin: 0;

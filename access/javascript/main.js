@@ -94,7 +94,7 @@ function showProductTypeListFnc() {
 
   for (let i = 0; i < arrayType.length; i++) {
     txtType = "'" + arrayType[i].typeID + "'";
-    var type = '<li class="product-type__item"  id="' + arrayType[i].typeID + '" onclick="showHomeProductList(0,15,1,' + txtType + ');"><a href="#home-product-id" class="product-type__item-link">' + arrayType[i].type + "</a></li>";
+    var type = '<li class="product-type__item"  id="' + arrayType[i].typeID + '" onclick="showHomeProductList(0,15,' + txtType + ');"><a href="#home-product-id" class="product-type__item-link">' + arrayType[i].type + "</a></li>";
     listType += type;
   }
 
@@ -102,7 +102,7 @@ function showProductTypeListFnc() {
 }
 
 // hiển thị sản phẩm từ file JSON
-function showHomeProductList(pageNumber, maxIndex, noOfPages, typeID) {
+function showHomeProductList(pageNumber, maxIndex, typeID) {
   numberOfItems = 0;
   var productRow = "";
   var k = maxIndex * pageNumber;
@@ -430,12 +430,12 @@ function addProductToCart(thisID) {
 }
 
 function goToFormCheckout() {
-  localStorage.getItem("UserInfo");
   if (localStorage.getItem("UserInfo") === null) {
-    alert;
+    alert("Bạn cần đăng nhập để hoàn tất thanh toán");
+  } else {
+    document.getElementById("modal-id").classList.add("show-component");
+    document.getElementById("form-checkout").classList.add("cart__display");
   }
-  document.getElementById("modal-id").classList.add("show-component");
-  document.getElementById("form-checkout").classList.add("cart__display");
 }
 
 function showCart() {
@@ -495,6 +495,13 @@ function showCart() {
   }
 }
 
+// function showCheckOutItem(){
+//   if(localStorage.getItem('listCart')!=null){
+//     var checkoutArr =
+//     for(let i =0; i<)
+//   }
+// }
+
 function deleteCartItem(obj) {
   var id = obj;
   cartt = JSON.parse(localStorage.getItem("listCart"));
@@ -547,7 +554,7 @@ function onloadFnc() {
 
   createType();
   createProduct();
-  showHomeProductList(0, 15, 1, "all");
+  showHomeProductList(0, 15, "all");
   showHomeProductPagination();
   showProductTypeListFnc();
 }
