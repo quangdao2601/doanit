@@ -57,12 +57,15 @@
               </div>
             </div>
             <!-- header cart button -->
-            <div class="page-header-top__right-cart page-header-item-hover">
+            <div class="page-header-top__right-cart" onclick="showCart();">
               <ion-icon class="page-header-cart-icon" name="cart-outline"></ion-icon>
               <!-- cart box -->
               <div id="page-header-top__right-cart-box-id" class="page-header-top__right-cart-box">
                 <!-- cart have item -->
-                <div class="page-header-top__right-cart-title">Giỏ hàng</div>
+                <div class="page-header-top__right-cart-heading">
+                  <div class="page-header-top__right-cart-title">Giỏ hàng</div>
+                  <button class="page-header-top__right-cart-hide-btn">Ẩn giỏ hàng</button>
+                </div>
                 <div class="page-header-top__right-cart-container">
                   <!-- cart item -->
                   <div class="page-header-top__right-cart-item">
@@ -97,6 +100,7 @@
                     <div class="page-header-top__right-cart-empty-noti">Giỏ hàng trống</div>
                   </div> -->
               </div>
+
             </div>
           </div>
         </div>

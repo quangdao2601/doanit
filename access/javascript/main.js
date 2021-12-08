@@ -27,7 +27,8 @@ function setProductType(typeID, type) {
   this.type = type;
 }
 
-function setProductItem(typeID, productID, name, price, sale, img) {
+function setProductItem(typeID, productID, name, price, sale, img, detail) {
+  this.detail = detail;
   this.typeID = typeID;
   this.productID = productID;
   this.name = name;
@@ -44,7 +45,7 @@ function setCartItem(cartID, product) {
 // type list
 
 function createType() {
-  var arrType = [new setProductType("nike-id", "Nike"), new setProductType("adidas", "Adidas"), new setProductType("fila", "Fila"), new setProductType("champion", "Champion")];
+  var arrType = [new setProductType("all", "Tất cả"), new setProductType("nike-id", "Nike"), new setProductType("adidas", "Adidas"), new setProductType("fila", "Fila"), new setProductType("champion", "Champion")];
   if (localStorage.getItem("listype") == null) {
     localStorage.setItem("listype", JSON.stringify(arrType));
   }
@@ -54,22 +55,22 @@ var arrProduct = [];
 
 function createProduct() {
   arrProduct = [
-    new setProductItem("nike-id", "nike-01", "nike 01", "1000", "1000000", "nike-1.jpg"),
-    new setProductItem("nike-id", "nike-02", "nike 02", "2000", "900", "nike-2.jpg"),
-    new setProductItem("nike-id", "nike-03", "nike 03", "3000", "1000", "nike-3.jpg"),
-    new setProductItem("nike-id", "nike-04", "nike 04", "4000", "1100", "add-1.jpg"),
-    new setProductItem("nike-id", "nike-05", "nike 05", "5000", "1200", "add-2.jpg"),
-    new setProductItem("nike-id", "nike-06", "nike 06", "6000", "1300", "nike-1.jpg"),
-    new setProductItem("nike-id", "nike-07", "nike 07", "7000", "1400", "nike-2.jpg"),
-    new setProductItem("nike-id", "nike-08", "nike 08", "8000", "1500", "nike-3.jpg"),
-    new setProductItem("nike-id", "nike-09", "Nike 09", "999", "1000", "add-1.jpg"),
-    new setProductItem("nike-id", "nike-10", "nike 10", "250", "1000", "add-2.jpg"),
-    new setProductItem("nike-id", "nike-11", "Nike 11", "1", "100", "nike-1.jpg"),
-    new setProductItem("nike-id", "nike-12", "Nike 12", "1", "100", "nike-1.jpg"),
-    new setProductItem("nike-id", "nike-14", "Nike 14", "1", "100", "nike-1.jpg"),
-    new setProductItem("nike-id", "nike-13", "Nike 13", "1", "100", "nike-1.jpg"),
-    new setProductItem("nike-id", "nike-15", "Nike 15", "5", "100", "nike-1.jpg"),
-    new setProductItem("nike-id", "nike-16", "Nike 16", "5", "100", "nike-1.jpg"),
+    new setProductItem("nike-id", "nike-01", "nike 01", "1000", "1000000", "nike-1.jpg", "100% coton"),
+    new setProductItem("nike-id", "nike-02", "nike 02", "2000", "900", "nike-2.jpg", "100% coton"),
+    new setProductItem("nike-id", "nike-03", "nike 03", "3000", "1000", "nike-3.jpg", "100% coton"),
+    new setProductItem("nike-id", "nike-04", "nike 04", "4000", "1100", "add-1.jpg", "100% coton"),
+    new setProductItem("nike-id", "nike-05", "nike 05", "5000", "1200", "add-2.jpg", "100% coton"),
+    new setProductItem("nike-id", "nike-06", "nike 06", "6000", "1300", "nike-1.jpg", "100% coton"),
+    new setProductItem("nike-id", "nike-07", "nike 07", "7000", "1400", "nike-2.jpg", "100% coton"),
+    new setProductItem("nike-id", "nike-08", "nike 08", "8000", "1500", "nike-3.jpg", "100% coton"),
+    new setProductItem("nike-id", "nike-09", "Nike 09", "999", "1000", "add-1.jpg", "100% coton"),
+    new setProductItem("nike-id", "nike-10", "nike 10", "250", "1000", "add-2.jpg", "100% coton"),
+    new setProductItem("nike-id", "nike-11", "Nike 11", "1", "100", "nike-1.jpg", "100% coton"),
+    new setProductItem("nike-id", "nike-12", "Nike 12", "1", "100", "nike-1.jpg", "100% coton"),
+    new setProductItem("nike-id", "nike-14", "Nike 14", "1", "100", "nike-1.jpg", "100% coton"),
+    new setProductItem("nike-id", "nike-13", "Nike 13", "1", "100", "nike-1.jpg", "100% coton"),
+    new setProductItem("nike-id", "nike-15", "Nike 15", "5", "100", "nike-1.jpg", "100% coton"),
+    new setProductItem("nike-id", "nike-16", "Nike 16", "5", "100", "nike-1.jpg", "100% coton"),
   ];
   if (localStorage.getItem("listproduct") == null) {
     localStorage.setItem("listproduct", JSON.stringify(arrProduct));
@@ -121,7 +122,6 @@ function showHomeProductList(pageNumber, maxIndex, noOfPages, typeID) {
     correctTypeProductArr.length = j;
   }
 
-  // console.log(correctTypeProductArr);
   var tempProductArr = []; // show home product list
   for (let i = 0; i < 3; i++) {
     var productCols = "";
@@ -141,7 +141,7 @@ function showHomeProductList(pageNumber, maxIndex, noOfPages, typeID) {
           tempProductArr[t].price +
           '$</span></div><div class="home-product__item-btn-field"><button id="' +
           tempProductArr[t].productID +
-          '" class="home-product__item-cart-insert btn" onclick="cartAddItem(this.id);">Thêm vào giỏ hàng</button><a href="#" class="home-product__item-link-btn"><button class="home-product__item-buy-btn btn">Mua Ngay</button></a></div></div></div></div>';
+          '" class="home-product__item-cart-insert btn" onclick="showDetail(this.id);">Xem chi tiết</button><a href="#" class="home-product__item-link-btn"><button class="home-product__item-buy-btn btn">Mua Ngay</button></a></div></div></div></div>';
         productCols += productCol;
         k++;
         t++;
@@ -152,63 +152,14 @@ function showHomeProductList(pageNumber, maxIndex, noOfPages, typeID) {
   }
 
   document.getElementById("home-product-id").innerHTML = '<div class="grid">' + productRow + "</div>";
-
-  // for (let i = 0; i < noOfPages; i++) {
-  //   if (i == pageNumber) {
-  //     document.getElementById("paginationPageNumber-" + pageNumber).classList.add("home-product-pagination-page--actived");
-  //   } else {
-  //     document.getElementById("paginationPageNumber-" + i).classList.remove("home-product-pagination-page--actived");
-  //   }
-  // }
 }
 
-function cartAddItem(id) {
+function showDetail(id) {
   console.log(id);
   for (let i = 0; i < tempProductArr.length; i++) {
     if (tempProductArr[i].productID == id) {
       console.log(tempProductArr[i]);
     }
-  }
-}
-
-function showCartItemList() {
-  // empty cart HTML
-  var emptyCart = '<div class="page-header-top__right-cart-show empty-cart"><div class="page-header-top__right-cart-empty-noti">Giỏ hàng trống</div></div>';
-
-  // var cartItemBody = '<div class="page-header-top__right-cart-info"><div class="page-header-top__right-cart-name">Tên SP</div><div class="page-header-top__right-cart-quantity">SL: <span>2</span></div><div class="page-header-top__right-cart-total-price">Thành tiền: <span>1000$</span></div></div>';
-
-  var cartItemHead = '<div class="page-header-top__right-cart-item"><img src="./access/image/product/nike-boston.jpg" alt="" class="page-header-top__right-cart-img" />';
-
-  var cartItemTail = '<div class="page-header-top__right-cart-remove"><button class="page-header-top__right-cart-remove-btn">Xoá</button></div></div>';
-
-  if (cartArr.length == 0) {
-    document.getElementById("page-header-top__right-cart-box-id").innerHTML = emptyCart;
-  } else {
-    // pay button HTML
-    var pay = '<div class="page-header-top__right-cart-pay"><button class="page-header-top__right-cart-pay-btn btn">Thanh toán</button></div>';
-
-    // cart title HTML
-
-    var cartTitle = '<div class="page-header-top__right-cart-title">Giỏ hàng</div>';
-    var cartContainer = "";
-
-    for (let i = 0; i < cartArr.length; i++) {
-      var cartItem =
-        cartItemHead +
-        '<div class="page-header-top__right-cart-info"><div class="page-header-top__right-cart-name">' +
-        cartArr[i].product.name +
-        '</div><div class="page-header-top__right-cart-quantity">SL: <span>' +
-        1 +
-        '</span></div><div class="page-header-top__right-cart-total-price">Thành tiền: <span>' +
-        cartArr[i].product.sale +
-        " $</span></div></div>" +
-        cartItemTail;
-
-      cartContainer += cartItem;
-    }
-
-    cartContainer = '<div class="page-header-top__right-cart-container">' + cartContainer + "</div>";
-    document.getElementById("page-header-top__right-cart-box-id").innerHTML = cartTitle + cartContainer + pay;
   }
 }
 
@@ -335,7 +286,7 @@ function createAdmin() {
   }
 }
 
-function showHomeProductListPage(page) {
+function showHomeProductListPage(page, noOfPages) {
   var productRow = "";
   var k = 15 * page;
   var t = 0;
@@ -359,7 +310,7 @@ function showHomeProductListPage(page) {
           tempProductArr[t].price +
           '$</span></div><div class="home-product__item-btn-field"><button id="' +
           tempProductArr[t].productID +
-          '" class="home-product__item-cart-insert btn" onclick="cartAddItem(this.id);">Thêm vào giỏ hàng</button><a href="#" class="home-product__item-link-btn"><button class="home-product__item-buy-btn btn">Mua Ngay</button></a></div></div></div></div>';
+          '" class="home-product__item-cart-insert btn" onclick="showDetail(this.id);">Xem chi tiết</button><a href="#" class="home-product__item-link-btn"><button class="home-product__item-buy-btn btn">Mua Ngay</button></a></div></div></div></div>';
         productCols += productCol;
         k++;
         t++;
@@ -371,7 +322,7 @@ function showHomeProductListPage(page) {
   document.getElementById("home-product-id").innerHTML = '<div class="grid">' + productRow + "</div>";
 }
 
-function showHomeProductPagination(numberOfPages) {
+function showHomeProductPagination() {
   // find number of pages
   var numberOfPages = (correctTypeProductArr.length - (correctTypeProductArr.length % 15)) / 15;
 
@@ -387,7 +338,7 @@ function showHomeProductPagination(numberOfPages) {
 
   var paginationPage = "";
   for (let i = 0; i < numberOfPages; i++) {
-    var paginationPageNumber = '<a id="paginationPageNumber-' + i + '" href="#product-section-id" class="home-product-pagination-page" onclick="showHomeProductListPage(' + i + ');">' + parseInt(i + 1) + "</a>";
+    var paginationPageNumber = '<a id="paginationPageNumber-' + i + '" href="#product-section-id" class="home-product-pagination-page" onclick="showHomeProductListPage(' + i + "," + numberOfPages + ');">' + parseInt(i + 1) + "</a>";
     paginationPage += paginationPageNumber;
   }
 
@@ -398,8 +349,148 @@ function showHomeProductPagination(numberOfPages) {
   } else {
     pagination = paginationPage;
   }
-
   document.getElementById("home-product-pagination-id").innerHTML = pagination;
+}
+
+function showDetail(productID_detail) {
+  products = JSON.parse(localStorage.getItem("listproduct"));
+  var s = "";
+  for (i = 0; i < products.length; i++) {
+    if (productID_detail == products[i].productID) {
+      s +=
+        "   <div class='detailproduct'><div class='thumbnail'><img src='access/image/product/" +
+        products[i].img +
+        "' alt=''></div><div class='information'><h1 class='name'>" +
+        products[i].name +
+        "</h1> <p class='code'><strong>Ma san pham:</strong>" +
+        products[i].productID +
+        "</p> <p class='price'> <strong>Gia san pham:</strong>" +
+        products[i].price +
+        "</p> <p class='detail'> <strong>Chi tiết: </strong>:" +
+        products[i].detail +
+        "</p><p><strong>Kích thước</strong>:</p><ul class='listsize'><li>39</li><li>40</li><li>41</li><li>42</li><li>43</li></ul><button id='" +
+        products[i].productID +
+        "' onclick='addProductToCart(this.id)' class='add_to_cart'>Them vao gio hang</button></div></div>";
+      break;
+    }
+  }
+  var home = '<button class="to-home-button btn">Home</button>';
+  document.getElementById("home-product-id").innerHTML = s + home;
+}
+
+function setCart(productID, image, price, name, numOrder) {
+  this.productID = productID;
+  this.image = image;
+  this.price = price;
+  this.name = name;
+  this.numOrder = numOrder;
+}
+
+function addProductToCart(thisID) {
+  var id = thisID;
+  listproduct = JSON.parse(localStorage.getItem("listproduct"));
+
+  cartt = JSON.parse(localStorage.getItem("listCart"));
+  for (i = 0; i < listproduct.length; i++) {
+    if (listproduct[i].productID == id) {
+      if (localStorage.getItem("listCart") == null) {
+        var product = [new setCart(listproduct[i].productID, listproduct[i].image, listproduct[i].price, listproduct[i].name, 1)];
+
+        localStorage.setItem("listCart", JSON.stringify(product));
+        alert("Đã thêm sản phẩm vào giỏ hàng");
+        return location.reload();
+      } else {
+        for (k = 0; k < cartt.length; k++) {
+          if (cartt[k].productID == id) {
+            cartt[k].numOrder++;
+            localStorage.setItem("listCart", JSON.stringify(cartt));
+            alert("Đã thêm sản phẩm vào giỏ hàng");
+            return location.reload();
+          }
+        }
+        var product = {
+          productID: listproduct[i].productID,
+          image: listproduct[i].image,
+          price: listproduct[i].price,
+          name: listproduct[i].name,
+          numOrder: 1,
+        };
+        cartt.push(product);
+        localStorage.setItem("listCart", JSON.stringify(cartt));
+        alert("Đã thêm sản phẩm vào giỏ ");
+        return location.reload();
+      }
+    }
+  }
+}
+
+function showCart() {
+  var sum = 0;
+  cartt = JSON.parse(localStorage.getItem("listCart"));
+  for (m = 0; m < cartt.length; m++) {
+    sum = sum - -(cartt[m].price * cartt[m].numOrder);
+  }
+
+  var cartTitle = '<div class="page-header-top__right-cart-heading">' + '<div class="page-header-top__right-cart-title">Giỏ hàng</div>' + '<button class="page-header-top__right-cart-hide-btn" onclick="hideCartBoxBtn();">Ẩn giỏ hàng</button>' + "</div>";
+
+  var cartContainerOpenTag = '<div class="page-header-top__right-cart-container">';
+  var closeDiv = "</div>";
+  var cartPayment = '<div class="page-header-top__right-cart-pay">' + '<button class="page-header-top__right-cart-pay-btn btn">' + "Thanh toán" + "</button>" + "</div>";
+
+  if (cartt.length == 0) {
+    var emptyCart = '<div class="page-header-top__right-cart-show empty-cart">' + '<div class="page-header-top__right-cart-empty-noti">Giỏ hàng trống</div>' + "</div>";
+    document.getElementById("page-header-top__right-cart-box-id").innerHTML = emptyCart;
+  } else {
+    var cartItems = "";
+    var cartItemOpenTag = '<div class="page-header-top__right-cart-item">';
+    for (let i = 0; i < cartt.length; i++) {
+      var cartItem =
+        '<img src="./access/image/product/nike-boston.jpg" alt="" class="page-header-top__right-cart-img" />' +
+        '<div class="page-header-top__right-cart-info">' +
+        '<div class="page-header-top__right-cart-name">' +
+        cartt[i].name +
+        "</div>" +
+        '<div class="page-header-top__right-cart-quantity">' +
+        "SL: <span>" +
+        cartt[i].numOrder +
+        "</span>" +
+        "</div>" +
+        '<div class="page-header-top__right-cart-total-price">' +
+        "Thành tiền: <span>" +
+        sum.toLocaleString() +
+        "</span>" +
+        "</div>" +
+        "</div>" +
+        '<div class="page-header-top__right-cart-remove">' +
+        '<button id="' +
+        cartt[i].productID +
+        '" class="page-header-top__right-cart-remove-btn" onclick="deleteCartItem(this.id)">' +
+        "Xoá" +
+        "</button>" +
+        "</div>";
+      cartItems += cartItemOpenTag + cartItem + closeDiv;
+    }
+
+    document.getElementById("page-header-top__right-cart-box-id").innerHTML = cartTitle + cartContainerOpenTag + cartItems + closeDiv + cartPayment;
+    document.getElementById("page-header-top__right-cart-box-id").classList.add("cart__display");
+  }
+}
+
+function hideCartBoxBtn() {
+  document.getElementById("page-header-top__right-cart-box-id").classList.remove("cart__display");
+}
+
+function deleteCartItem(obj) {
+  var id = obj;
+  cartt = JSON.parse(localStorage.getItem("listCart"));
+  for (i = 0; i < cartt.length; i++) {
+    if (id == cartt[i].productID) {
+      cartt.splice(i, 1);
+      localStorage.setItem("listCart", JSON.stringify(cartt));
+      alert("Đã xóa sản phẩm khỏi giỏ hàng");
+      return location.reload();
+    }
+  }
 }
 
 // onload auto tạo form login reg
@@ -440,10 +531,9 @@ function onloadFnc() {
 
   createType();
   createProduct();
-  showHomeProductList(0, 15, 1, "nike-id");
+  showHomeProductList(0, 15, 1, "all");
   showHomeProductPagination();
   showProductTypeListFnc();
-  showCartItemList();
 }
 
 window.onload = onloadFnc;
