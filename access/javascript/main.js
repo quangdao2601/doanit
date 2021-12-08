@@ -380,6 +380,7 @@ function showDetail(productID_detail) {
     }
   }
   var home = '<button class="to-home-button btn">Home</button>';
+  document.getElementById("home-product-pagination-id").innerHTML = "";
   document.getElementById("home-product-id").innerHTML = s + home;
 }
 
