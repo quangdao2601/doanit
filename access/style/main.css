@@ -791,10 +791,10 @@
 }
 
 .form-checkout {
-  display: none;
+  display: block;
   position: absolute;
   background-color: #ccc;
-  z-index: 10;
+  z-index: 100;
 }
 
 /* css page footerr */

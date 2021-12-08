@@ -27,22 +27,6 @@ function setProductType(typeID, type) {
   this.type = type;
 }
 
-var listCart = [];
-
-function createCart() {
-  if (localStorage.getItem("lisCart") == null) {
-    localStorage.setItem("listCart", JSON.stringify(createCart));
-  }
-}
-
-function setCart(productID, image, price, name, numOrder) {
-  this.productID = productID;
-  this.image = image;
-  this.price = price;
-  this.name = name;
-  this.numOrder = numOrder;
-}
-
 function setProductItem(typeID, productID, name, price, sale, img, detail) {
   this.detail = detail;
   this.typeID = typeID;
@@ -394,6 +378,14 @@ function showDetail(productID_detail) {
   document.getElementById("home-product-id").innerHTML = s + home;
 }
 
+function setCart(productID, image, price, name, numOrder) {
+  this.productID = productID;
+  this.image = image;
+  this.price = price;
+  this.name = name;
+  this.numOrder = numOrder;
+}
+
 function addProductToCart(thisID) {
   var id = thisID;
   listproduct = JSON.parse(localStorage.getItem("listproduct"));
@@ -433,54 +425,59 @@ function addProductToCart(thisID) {
 }
 
 function showCart() {
-  // document.getElementById("page-header-top__right-cart-box-id").classList.add("cart__display");
-  var sum = 0;
-  cartt = JSON.parse(localStorage.getItem("listCart"));
-  for (m = 0; m < cartt.length; m++) {
-    sum = sum - -(cartt[m].price * cartt[m].numOrder);
-  }
-
   var cartTitle = '<div class="page-header-top__right-cart-heading">' + '<div class="page-header-top__right-cart-title">Giỏ hàng</div>' + "</div>";
 
   var cartContainerOpenTag = '<div class="page-header-top__right-cart-container">';
   var closeDiv = "</div>";
   var cartPayment = '<div class="page-header-top__right-cart-pay">' + '<button class="page-header-top__right-cart-pay-btn btn">' + "Thanh toán" + "</button>" + "</div>";
 
-  if (cartt.length == 0) {
+  // document.getElementById("page-header-top__right-cart-box-id").classList.add("cart__display");
+  var sum = 0;
+  var cartt = JSON.parse(localStorage.getItem("listCart"));
+  if (localStorage.getItem("listCart") === null) {
     var emptyCart = '<div class="page-header-top__right-cart-show empty-cart">' + '<div class="page-header-top__right-cart-empty-noti">Giỏ hàng trống</div>' + "</div>";
     document.getElementById("page-header-top__right-cart-box-id").innerHTML = cartTitle + emptyCart + closeDiv;
   } else {
-    var cartItems = "";
-    var cartItemOpenTag = '<div class="page-header-top__right-cart-item">';
-    for (let i = 0; i < cartt.length; i++) {
-      var cartItem =
-        '<img src="./access/image/product/nike-boston.jpg" alt="" class="page-header-top__right-cart-img" />' +
-        '<div class="page-header-top__right-cart-info">' +
-        '<div class="page-header-top__right-cart-name">' +
-        cartt[i].name +
-        "</div>" +
-        '<div class="page-header-top__right-cart-quantity">' +
-        "SL: <span>" +
-        cartt[i].numOrder +
-        "</span>" +
-        "</div>" +
-        '<div class="page-header-top__right-cart-total-price">' +
-        "Thành tiền: <span>" +
-        sum.toLocaleString() +
-        "</span>" +
-        "</div>" +
-        "</div>" +
-        '<div class="page-header-top__right-cart-remove">' +
-        '<button id="' +
-        cartt[i].productID +
-        '" class="page-header-top__right-cart-remove-btn" onclick="deleteCartItem(this.id)">' +
-        "Xoá" +
-        "</button>" +
-        "</div>";
-      cartItems += cartItemOpenTag + cartItem + closeDiv;
+    for (m = 0; m < cartt.length; m++) {
+      sum = sum - -(cartt[m].price * cartt[m].numOrder);
     }
 
-    document.getElementById("page-header-top__right-cart-box-id").innerHTML = cartTitle + cartContainerOpenTag + cartItems + closeDiv + cartPayment;
+    if (cartt.length == 0) {
+      var emptyCart = '<div class="page-header-top__right-cart-show empty-cart">' + '<div class="page-header-top__right-cart-empty-noti">Giỏ hàng trống</div>' + "</div>";
+      document.getElementById("page-header-top__right-cart-box-id").innerHTML = cartTitle + emptyCart + closeDiv;
+    } else {
+      var cartItems = "";
+      var cartItemOpenTag = '<div class="page-header-top__right-cart-item">';
+      for (let i = 0; i < cartt.length; i++) {
+        var cartItem =
+          '<img src="./access/image/product/nike-boston.jpg" alt="" class="page-header-top__right-cart-img" />' +
+          '<div class="page-header-top__right-cart-info">' +
+          '<div class="page-header-top__right-cart-name">' +
+          cartt[i].name +
+          "</div>" +
+          '<div class="page-header-top__right-cart-quantity">' +
+          "SL: <span>" +
+          cartt[i].numOrder +
+          "</span>" +
+          "</div>" +
+          '<div class="page-header-top__right-cart-total-price">' +
+          "Thành tiền: <span>" +
+          sum.toLocaleString() +
+          "</span>" +
+          "</div>" +
+          "</div>" +
+          '<div class="page-header-top__right-cart-remove">' +
+          '<button id="' +
+          cartt[i].productID +
+          '" class="page-header-top__right-cart-remove-btn" onclick="deleteCartItem(this.id)">' +
+          "Xoá" +
+          "</button>" +
+          "</div>";
+        cartItems += cartItemOpenTag + cartItem + closeDiv;
+      }
+
+      document.getElementById("page-header-top__right-cart-box-id").innerHTML = cartTitle + cartContainerOpenTag + cartItems + closeDiv + cartPayment;
+    }
   }
 }
 
@@ -528,7 +525,6 @@ function isLogin() {
 }
 
 function onloadFnc() {
-  createCart();
   showCart();
   createFormLogin();
   createAdmin();
