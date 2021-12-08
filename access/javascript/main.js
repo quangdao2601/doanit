@@ -425,13 +425,14 @@ function addProductToCart(thisID) {
 }
 
 function showCart() {
+  // document.getElementById("page-header-top__right-cart-box-id").classList.add("cart__display");
   var sum = 0;
   cartt = JSON.parse(localStorage.getItem("listCart"));
   for (m = 0; m < cartt.length; m++) {
     sum = sum - -(cartt[m].price * cartt[m].numOrder);
   }
 
-  var cartTitle = '<div class="page-header-top__right-cart-heading">' + '<div class="page-header-top__right-cart-title">Giỏ hàng</div>' + '<button class="page-header-top__right-cart-hide-btn" onclick="hideCartBoxBtn();">Ẩn giỏ hàng</button>' + "</div>";
+  var cartTitle = '<div class="page-header-top__right-cart-heading">' + '<div class="page-header-top__right-cart-title">Giỏ hàng</div>' + "</div>";
 
   var cartContainerOpenTag = '<div class="page-header-top__right-cart-container">';
   var closeDiv = "</div>";
@@ -439,7 +440,7 @@ function showCart() {
 
   if (cartt.length == 0) {
     var emptyCart = '<div class="page-header-top__right-cart-show empty-cart">' + '<div class="page-header-top__right-cart-empty-noti">Giỏ hàng trống</div>' + "</div>";
-    document.getElementById("page-header-top__right-cart-box-id").innerHTML = emptyCart;
+    document.getElementById("page-header-top__right-cart-box-id").innerHTML = cartTitle + emptyCart + closeDiv;
   } else {
     var cartItems = "";
     var cartItemOpenTag = '<div class="page-header-top__right-cart-item">';
@@ -472,12 +473,7 @@ function showCart() {
     }
 
     document.getElementById("page-header-top__right-cart-box-id").innerHTML = cartTitle + cartContainerOpenTag + cartItems + closeDiv + cartPayment;
-    document.getElementById("page-header-top__right-cart-box-id").classList.add("cart__display");
   }
-}
-
-function hideCartBoxBtn() {
-  document.getElementById("page-header-top__right-cart-box-id").classList.remove("cart__display");
 }
 
 function deleteCartItem(obj) {
@@ -524,6 +520,7 @@ function isLogin() {
 }
 
 function onloadFnc() {
+  showCart();
   createFormLogin();
   createAdmin();
   isLogin();
