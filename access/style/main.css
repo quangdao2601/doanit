@@ -495,6 +495,7 @@
 
 .register-form__span,
 .login-form__span {
+  margin-top: 12px;
   font-size: 18px;
   color: var(--text-color);
   font-weight: 500;

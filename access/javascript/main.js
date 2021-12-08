@@ -78,6 +78,7 @@ function createProduct() {
 
 var txtType = "";
 var correctTypeProductArr = [];
+var numberOfItems;
 
 // show product type list onload
 function showProductTypeListFnc() {
@@ -94,9 +95,9 @@ function showProductTypeListFnc() {
   document.getElementById("product-type-list-id").innerHTML = listType;
 }
 
-var tempProductArr = []; // show home product list
 // hiển thị sản phẩm từ file JSON
 function showHomeProductList(pageNumber, maxIndex, noOfPages, typeID) {
+  numberOfItems = 0;
   var productRow = "";
   var k = maxIndex * pageNumber;
   var t = 0;
@@ -112,43 +113,42 @@ function showHomeProductList(pageNumber, maxIndex, noOfPages, typeID) {
     var j = 0;
     for (let i = 0; i < originalArray.length; i++) {
       if (originalArray[i].typeID === typeID) {
+        numberOfItems++;
         correctTypeProductArr[j] = originalArray[i];
         j++;
       }
     }
+    correctTypeProductArr.length = j;
   }
 
   // console.log(correctTypeProductArr);
-
+  var tempProductArr = []; // show home product list
   for (let i = 0; i < 3; i++) {
-    if (correctTypeProductArr[k] == null) {
-      break;
-    } else {
-      var productCols = "";
-      for (let j = 0; j < 5; j++) {
-        if (correctTypeProductArr[k] == null) {
-          break;
-        } else {
-          tempProductArr[t] = correctTypeProductArr[k];
-          var productCol =
-            '<div class="grid__col-2-4"><div class="home-product__item"><a href="" class="home-product__item-link"><img src="./access/image/product/' +
-            tempProductArr[t].img +
-            '" alt="product image" class="home-product__item-img" /></a><!-- product detail --><div class="home-product__item-container"><div class="home-product__item-title">' +
-            tempProductArr[t].name +
-            '</div><div class="home-product__item-price">Giá gốc: <span>' +
-            tempProductArr[t].price +
-            ' $</span></div><div class="home-product__item-sale">Giảm giá: ' +
-            tempProductArr[t].sale +
-            ' $</div><div class="home-product__item-btn-field"><button id="' +
-            tempProductArr[t].productID +
-            '" class="home-product__item-cart-insert btn" onclick="cartAddItem(this.id);">Thêm vào giỏ hàng</button><a href="#" class="home-product__item-link-btn"><button class="home-product__item-buy-btn btn">Mua Ngay</button></a></div></div></div></div>';
-          productCols += productCol;
-          k++;
-          t++;
-        }
+    var productCols = "";
+    for (let j = 0; j < 5; j++) {
+      if (correctTypeProductArr[k] == null) {
+        break;
+      } else {
+        tempProductArr[t] = correctTypeProductArr[k];
+        var productCol = "";
+
+        productCol =
+          '<div class="grid__col-2-4"><div class="home-product__item"><a href="" class="home-product__item-link"><img src="./access/image/product/' +
+          tempProductArr[t].img +
+          '" alt="product image" class="home-product__item-img" /></a><!-- product detail --><div class="home-product__item-container"><div class="home-product__item-title">' +
+          tempProductArr[t].name +
+          '</div><div class="home-product__item-price">Giá: <span>' +
+          tempProductArr[t].price +
+          '$</span></div><div class="home-product__item-btn-field"><button id="' +
+          tempProductArr[t].productID +
+          '" class="home-product__item-cart-insert btn" onclick="cartAddItem(this.id);">Thêm vào giỏ hàng</button><a href="#" class="home-product__item-link-btn"><button class="home-product__item-buy-btn btn">Mua Ngay</button></a></div></div></div></div>';
+        productCols += productCol;
+        k++;
+        t++;
       }
-      productRow += ' <div class="grid__row">' + productCols + "</div>";
     }
+    productRow += ' <div class="grid__row">' + productCols + "</div>";
+    showHomeProductPagination();
   }
 
   document.getElementById("home-product-id").innerHTML = '<div class="grid">' + productRow + "</div>";
@@ -335,9 +335,44 @@ function createAdmin() {
   }
 }
 
-function showHomeProductPagination(txtType) {
-  // find number of pages
+function showHomeProductListPage(page) {
+  var productRow = "";
+  var k = 15 * page;
+  var t = 0;
 
+  var tempProductArr = []; // show home product list
+  for (let i = 0; i < 3; i++) {
+    var productCols = "";
+    for (let j = 0; j < 5; j++) {
+      if (correctTypeProductArr[k] == null) {
+        break;
+      } else {
+        tempProductArr[t] = correctTypeProductArr[k];
+        var productCol = "";
+
+        productCol =
+          '<div class="grid__col-2-4"><div class="home-product__item"><a href="" class="home-product__item-link"><img src="./access/image/product/' +
+          tempProductArr[t].img +
+          '" alt="product image" class="home-product__item-img" /></a><!-- product detail --><div class="home-product__item-container"><div class="home-product__item-title">' +
+          tempProductArr[t].name +
+          '</div><div class="home-product__item-price">Giá: <span>' +
+          tempProductArr[t].price +
+          '$</span></div><div class="home-product__item-btn-field"><button id="' +
+          tempProductArr[t].productID +
+          '" class="home-product__item-cart-insert btn" onclick="cartAddItem(this.id);">Thêm vào giỏ hàng</button><a href="#" class="home-product__item-link-btn"><button class="home-product__item-buy-btn btn">Mua Ngay</button></a></div></div></div></div>';
+        productCols += productCol;
+        k++;
+        t++;
+      }
+    }
+    productRow += ' <div class="grid__row">' + productCols + "</div>";
+    showHomeProductPagination();
+  }
+  document.getElementById("home-product-id").innerHTML = '<div class="grid">' + productRow + "</div>";
+}
+
+function showHomeProductPagination(numberOfPages) {
+  // find number of pages
   var numberOfPages = (correctTypeProductArr.length - (correctTypeProductArr.length % 15)) / 15;
 
   // find leftItemsQuantity
@@ -347,18 +382,19 @@ function showHomeProductPagination(txtType) {
     numberOfPages++;
   }
 
-  var prevArrow = '<a class="home-product-pagination-prev">' + '<ion-icon name="chevron-back-outline"></ion-icon>' + "</a>";
-  var nextArrow = '<a class="home-product-pagination-next">' + '<ion-icon name="chevron-forward-outline"></ion-icon>' + "</a>";
+  // var prevArrow = '<a class="home-product-pagination-prev">' + '<ion-icon name="chevron-back-outline"></ion-icon>' + "</a>";
+  // var nextArrow = '<a class="home-product-pagination-next">' + '<ion-icon name="chevron-forward-outline"></ion-icon>' + "</a>";
 
   var paginationPage = "";
   for (let i = 0; i < numberOfPages; i++) {
-    var paginationPageNumber = '<a id="paginationPageNumber-' + i + '" href="#product-section-id" class="home-product-pagination-page" onclick="showHomeProductList(' + i + ", 15," + numberOfPages + "," + txtType + ');">' + parseInt(i + 1) + "</a>";
+    var paginationPageNumber = '<a id="paginationPageNumber-' + i + '" href="#product-section-id" class="home-product-pagination-page" onclick="showHomeProductListPage(' + i + ');">' + parseInt(i + 1) + "</a>";
     paginationPage += paginationPageNumber;
   }
 
   var pagination = "";
   if (numberOfPages > 1) {
-    pagination = prevArrow + paginationPage + nextArrow;
+    // pagination = prevArrow + paginationPage + nextArrow;
+    pagination = paginationPage;
   } else {
     pagination = paginationPage;
   }
@@ -404,8 +440,7 @@ function onloadFnc() {
 
   createType();
   createProduct();
-
-  showHomeProductList(0, 15, 1, "all");
+  showHomeProductList(0, 15, 1, "nike-id");
   showHomeProductPagination();
   showProductTypeListFnc();
   showCartItemList();
