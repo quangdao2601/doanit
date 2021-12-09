@@ -190,11 +190,12 @@ function loadform() {
 
 /// load trang chủ
 function loadmain() {
-  var s = "<img src='access/image/slider/slider.jpg' alt=''>";
+  var s = "Thống kê";
   document.getElementById("list").innerHTML = s;
   document.getElementById("right").innerHTML = "";
   document.getElementById("paginate").innerHTML = "";
 }
+
 // xử lý thanh phân trang
 function pagination(numproduct, numpage, type) {
   // numproduct:số sản phẩm   numpage:số sản phẩm 1 trang  type 1 là sp 2 là user

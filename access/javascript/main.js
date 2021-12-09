@@ -187,6 +187,7 @@ function login() {
           userName: userName,
           fullname: adminArray[i].fullname,
           userType: adminArray[i].userType,
+          phoneNumber: adminArray[i].phone,
         };
         user.push(info);
         localStorage.setItem("UserInfo", JSON.stringify(user));
@@ -454,7 +455,7 @@ function addProductToCart(thisID) {
   for (i = 0; i < listproduct.length; i++) {
     if (listproduct[i].productID == id) {
       if (localStorage.getItem("listCart") == null) {
-        var product = [new setCart(listproduct[i].productID, listproduct[i].image, listproduct[i].price, listproduct[i].name, 1)];
+        var product = [new setCart(listproduct[i].productID, listproduct[i].img, listproduct[i].price, listproduct[i].name, 1)];
 
         localStorage.setItem("listCart", JSON.stringify(product));
         alert("Đã thêm sản phẩm vào giỏ hàng");
@@ -470,7 +471,7 @@ function addProductToCart(thisID) {
         }
         var product = {
           productID: listproduct[i].productID,
-          image: listproduct[i].image,
+          image: listproduct[i].img,
           price: listproduct[i].price,
           name: listproduct[i].name,
           numOrder: 1,
@@ -519,7 +520,9 @@ function showCart() {
       var cartItemOpenTag = '<div class="page-header-top__right-cart-item">';
       for (let i = 0; i < cartt.length; i++) {
         var cartItem =
-          '<img src="./access/image/product/nike-boston.jpg" alt="" class="page-header-top__right-cart-img" />' +
+          '<img src="./access/image/product/' +
+          cartt[i].image +
+          '" alt="" class="page-header-top__right-cart-img" />' +
           '<div class="page-header-top__right-cart-info">' +
           '<div class="page-header-top__right-cart-name">' +
           cartt[i].name +
@@ -551,17 +554,60 @@ function showCart() {
 }
 
 function showCheckOutItem() {
+  var userArr = JSON.parse(localStorage.getItem("UserInfo"));
+  document.getElementById("fullnameuser").value = userArr[0].fullname;
+  document.getElementById("phoneuser").value = userArr[0].phoneNumber;
+
   if (localStorage.getItem("listCart") != null) {
     var checkoutArr = JSON.parse(localStorage.getItem("listCart"));
-    console.log(checkoutArr.length);
+    var sum = 0;
     s = "";
     for (let i = 0; i < checkoutArr.length; i++) {
-      var s1 = '<li class="check-out-product-item">' + '<div class="thumb">' + '<img src="./access/image/product/nike-boston.jpg" alt="">' + "</div>" + '<div class="moreinfo">' + "<p>Số lượng:10</p>" + "</div>";
+      sum = sum - -(checkoutArr[i].price * checkoutArr[i].numOrder);
+      var s1 = '<li class="check-out-product-item">' + '<div class="thumb">' + '<img src="./access/image/product/' + checkoutArr[i].image + '" alt="">' + "</div>" + '<div class="moreinfo">' + "<p>Số lượng: " + checkoutArr[i].numOrder + "</p>" + "</div>";
       ("</li>");
       s += s1;
     }
   }
-  document.getElementById("detailCheckout").innerHTML = '<ul class="listproduct">' + s + "</ul>" + '<p class="form-checkout-total"><strong>Tổng tiền:1000</strong></p>';
+  document.getElementById("detailCheckout").innerHTML = '<ul class="listproduct">' + s + "</ul>" + '<p class="form-checkout-total"><strong>Tổng tiền: ' + sum + "</strong></p>";
+}
+
+function setCheckoutInfo(fullname, phone, address, note, payment, maDH) {
+  this.fullname = fullname;
+  this.phone = phone;
+  this.address = address;
+  this.note = note;
+  this.payment = payment;
+  this.maDH = maDH;
+}
+
+function setCartArr(maDH, productName, quantity, price) {
+  this.maDH = maDH;
+  this.productName = productName;
+  this.quantity = quantity;
+  this.price = price;
+}
+
+function checkOut() {
+  var fullname = document.getElementById("fullnameuser").value;
+  var phone = document.getElementById("phoneuser").value;
+  if ((address = document.getElementById("address").value === "" || phone === "" || fullname === "")) {
+    alert("Nhập đầy đủ thông tin thanh toán");
+  } else {
+    var checkoutArr = JSON.parse(localStorage.getItem("listCart"));
+    var address = document.getElementById("address").value;
+    var note = document.getElementById("notes").value;
+    var payment = document.getElementById("payment").value;
+    var cartArr = [];
+    for (let i = 0; i < checkoutArr.length; i++) {
+      cartArr[i] = new setCartArr("DH01", checkoutArr[i].name, checkoutArr[i].numOrder, checkoutArr[i].price);
+      localStorage.setItem("listCartCheckout", JSON.stringify(cartArr));
+    }
+    console.log(cartArr);
+    // localStorage.setItem("listCartCheckout", JSON.stringify(cartArr));
+    var checkOutInfo = [new setCheckoutInfo(fullname, phone, address, note, payment, cartArr[0].maDH)];
+    localStorage.setItem("listCheckOut", JSON.stringify(checkOutInfo));
+  }
 }
 
 function deleteCartItem(obj) {

@@ -697,7 +697,7 @@
 }
 
 .home-product__item-price span {
-  text-decoration: line-through;
+  text-decoration: none;
 }
 
 .home-product__item-sale {
