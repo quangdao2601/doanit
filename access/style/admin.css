@@ -15,19 +15,19 @@ body {
 }
 
 .left {
-    width: 20%;
+    width: 10%;
     font-size: 14px;
     padding: 20px 20px 0px 0px;
 }
 
 .content {
-    width: 50%;
+    width: 72%;
     font-size: 14px;
     padding: 20px;
 }
 
 .right {
-    width: 30%;
+    width: 18%;
     font-size: 14px;
     padding: 20px 0px 0px 20px;
 }
@@ -39,6 +39,14 @@ ul.list-item {
 ul.list-item li {
     padding: 20px;
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15)!important;
+}
+
+ul.list-item a {
+    text-decoration: none;
+}
+
+ul.list-item a li {
+    color: black;
 }
 
 ul.list-item li:hover {
@@ -58,14 +66,48 @@ ul.list-item li:hover {
     padding-bottom: 10px;
 }
 
+.right #searchproductslow {
+    display: block;
+    padding: 10px;
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+.right .btn-search {
+    border: none;
+    width: 80%;
+    display: block;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.right .btn-search:hover {
+    cursor: pointer;
+    background-color: red;
+    color: white;
+}
+
+.right .btn-searchproduct {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+}
+
+.right .btn-searchproduct:hover {
+    background-color: red;
+    color: white;
+}
+
 .form-add input,
+.form-add textarea,
 .addtype input,
 .form-add select {
     display: block;
     margin-bottom: 10px;
     margin-top: 5px;
     padding: 10px;
-    width: 60%;
+    width: 80%;
 }
 
 .form-add input.btn-add,
@@ -144,7 +186,7 @@ ul.list-item li:hover {
 }
 
 .content .listuser tr th {
-    width: 16.6%;
+    width: 12%;
     padding: 20px;
 }
 
@@ -153,12 +195,14 @@ ul.list-item li:hover {
 }
 
 .content .listuser tbody tr {
-    border-bottom: 1px solid black;
     height: 40px;
+    width: 100%;
 }
 
 .content .listuser tbody tr td {
     text-align: center;
+    border-bottom: 1px solid black;
+    width: 20%;
 }
 
 
@@ -215,10 +259,14 @@ ul.list-item li:hover {
     display: block!important;
 }
 
+.none {
+    display: none!important;
+}
+
 #update .formupdate {
     padding: 20px;
     margin: auto;
-    margin-top: 6%;
+    margin-top: 5%;
     min-height: 10%;
     background-color: red;
     border-radius: 4px;
@@ -244,7 +292,8 @@ ul.list-item li:hover {
     justify-content: space-between;
 }
 
-#update .formupdate input {
+#update .formupdate input,
+#update .formupdate textarea {
     display: block;
     width: 100%;
     padding: 10px;
@@ -271,4 +320,305 @@ ul.list-item li:hover {
 #update .formupdate img {
     width: 20%;
     height: auto;
+}
+
+.content .thongke thead tr th {
+    background-color: #ddd;
+    padding: 10px;
+    width: 12%;
+}
+
+.content .thongke tbody tr td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+
+
+/* // showw đơn hàng */
+
+#detailCart {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    display: none;
+}
+
+#detailCart .cart {
+    margin: auto;
+    margin-left: 15%;
+    margin-top: 4.5%;
+    min-height: 10%;
+    width: 50%;
+    padding: 10px;
+    background-color: #fff;
+}
+
+#detailCart .cart #listproductcart table {
+    width: 100%;
+    font-size: 14px;
+}
+
+#detailCart .cart #listproductcart .sum {
+    font-size: 14px;
+    margin-left: 10px;
+    margin-top: 50px;
+}
+
+#detailCart .cart #listproductcart table thead tr th {
+    padding: 10px;
+    background: #ddd;
+    width: 30%;
+}
+
+#detailCart .cart #listproductcart table thead tr:hover {
+    cursor: pointer;
+}
+
+#detailCart .cart #listproductcart table tbody tr {
+    border-bottom: 1px solid black;
+}
+
+#detailCart .cart #listproductcart table tbody tr td {
+    text-align: center;
+    padding: 15px;
+}
+
+
+/* // thêm thành viên */
+
+.form-add-user h1 {
+    margin-bottom: 10px;
+}
+
+.form-add-user input#search {
+    margin-top: 10px;
+}
+
+.form-add-user input.btn-search {
+    margin-top: 10px;
+    margin-bottom: 50px;
+    border: none;
+}
+
+.form-add-user input.btn-search:hover {
+    background-color: red;
+    color: white;
+}
+
+.form-add-user input,
+.form-add-user label {
+    padding: 10px;
+    display: block;
+    width: 80%;
+}
+
+.form-add-user .btn-add-user {
+    padding: 10px;
+    border: none;
+    margin-top: 10px;
+    display: block;
+}
+
+.form-add-user .btn-add-user:hover {
+    background-color: red;
+    color: white;
+}
+
+
+/* // cập nhật thông tin user */
+
+#updateuser {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    display: none;
+}
+
+#updateuser .formupdate {
+    margin: auto;
+    margin-left: 21%;
+    background-color: #fff;
+    margin-top: 6.5%;
+    width: 50%;
+    min-height: 40%;
+    padding: 10px;
+    border: 1px solid black;
+    font-size: 14px;
+    animation: authFormShow ease-out 280ms;
+}
+
+#updateuser .formupdate .head {
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+#updateuser .formupdate .head i {
+    font-size: 25px;
+}
+
+#updateuser .formupdate input,
+#updateuser .formupdate label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    padding: 10px;
+    width: 100%;
+}
+
+#updateuser .formupdate .btn-update {
+    border: none;
+    padding: 10px;
+    margin-top: 27px;
+    display: block;
+}
+
+#updateuser .formupdate .btn-update:hover {
+    background: red;
+    color: white;
+}
+
+.showformupdateuser {
+    display: block!important;
+}
+
+#formseacrch .search,
+#formsearchproduct .seacrchproduct {
+    padding: 10px;
+}
+
+#formseacrch,
+#formsearchproduct {
+    position: relative;
+    margin-left: 182px;
+}
+
+#formseacrch i,
+#formsearchproduct i {
+    position: absolute;
+    top: 13px;
+    right: 12px;
+}
+
+#header {
+    display: flex;
+    /* justify-content: space-between; */
+}
+
+
+/* // trạng thái đơn hàng */
+
+#listproductcart .statuscart {
+    padding: 20px;
+}
+
+#listproductcart .statuscart label,
+#listproductcart .statuscart input,
+#listproductcart .statuscart select {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+#listproductcart .statuscart .btn-update {
+    padding: 10px;
+    display: block;
+    border: none;
+    margin-top: 10px;
+}
+
+#listproductcart .statuscart .btn-update:hover {
+    background-color: red;
+    color: white;
+}
+
+#logout {
+    font-size: 14px;
+}
+
+#logout:hover {
+    cursor: pointer;
+}
+
+.thumbuser {
+    width: 10%;
+    height: 10%;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.thumbuser img {
+    width: 100%;
+    height: auto;
+}
+
+#list p {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+#list .bill {
+    width: 100%;
+}
+
+#list .bill thead tr th {
+    width: 16%;
+    padding: 10px;
+    background-color: red;
+    color: white;
+}
+
+#list .bill tbody tr td {
+    padding: 15px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#list .bil i {
+    position: absolute;
+    top: 20px;
+    right: 82px;
+    font-size: 20px;
+}
+
+#list .bil h2 {
+    margin-bottom: 20px;
+}
+
+#list .bil span {
+    margin-bottom: 10px;
+    margin-top: 22px;
+    display: block;
+}
+
+#list .bil table {
+    width: 100%;
+}
+
+#list .bil table thead tr th {
+    padding: 5px;
+    width: 20%;
+}
+
+#list .bil table tbody tr td {
+    padding: 5px;
+    text-align: center;
+}
+
+#list .bil .total {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 9%;
+    padding-right: 6%;
+    border-bottom: 1px solid black;
+}
+
+#list {
+    font-size: 14px;
 }

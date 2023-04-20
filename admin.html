@@ -2,73 +2,163 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Đồ án môn học</title>
-  <link rel="stylesheet" href="./access/style/base.css" />
-  <link rel="stylesheet" href="./access/style/gridLayout.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đồ án môn học</title>
+    <link rel="stylesheet" href="./access/style/base.css" />
+    <link rel="stylesheet" href="./access/style/gridLayout.css" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
-  <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="./access/icon_pack/themify-icons.css" />
-  <link rel="stylesheet" href="access/fontawesome/css/all.css" />
-  <link rel="stylesheet" href="access/style/admin.css" />
-  <link rel="stylesheet" href="access/style/main.css">
-  <link rel="stylesheet" href="access/style/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
+    <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./access/icon_pack/themify-icons.css" />
+    <link rel="stylesheet" href="access/fontawesome/css/all.css" />
+    <link rel="stylesheet" href="access/style/admin.css" />
+    <link rel="stylesheet" href="access/style/main.css">
+    <link rel="stylesheet" href="access/style/responsive.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+
 </head>
+<script>
+    $(document).ready(function() {
+        $('.search').keyup(function() {
+            var query = document.getElementById("search").value
+
+            users = JSON.parse(localStorage.getItem("user"))
+            $.ajax({
+                url: "process.php", // đường dẫn khi gửi dữ liệu đi 'search' là tên route mình đặt bạn mở route lên xem là hiểu nó là cái j.
+                method: "POST", // phương thức gửi dữ liệu.
+                data: {
+                    query: query,
+                    users: users
+                },
+                success: function(data) { //dữ liệu nhận về
+                    $('#list').fadeIn();
+                    $('#list').html(data); //nhận dữ liệu dạng html và gán vào cặp thẻ có id là countryList
+                }
+            });
+        })
+        $('#seacrchproduct').keyup(function() {
+            var textinput = $(this).val()
+            listproduct = JSON.parse(localStorage.getItem("listproduct"))
+            $.ajax({
+                url: "product.php", // đường dẫn khi gửi dữ liệu đi 'search' là tên route mình đặt bạn mở route lên xem là hiểu nó là cái j.
+                method: "POST", // phương thức gửi dữ liệu.
+                data: {
+                    textinput: textinput,
+                    listproduct: listproduct,
+                },
+                success: function(data) { //dữ liệu nhận về
+                    $('#list').fadeIn();
+                    $('#list').html(data); //nhận dữ liệu dạng html và gán vào cặp thẻ có id là countryList
+                }
+            });
+        })
+    })
+</script>
 
 <body>
-  <div id="wrapper">
-    <div id="header">
-      FASHION TREND
-      <a href="index.html" class="backHomePage">Trở về trang chủ</a>
+    <div id="wrapper">
+        <div id="header">
+            <p id="logout" onclick='logoutadmin()'>Đăng xuất</p>
 
-    </div>
-    <div id="wp-content">
-      <div class="left">
-        <ul class="list-item">
-          <li id="sp" onclick="show(this)">Sản phẩm</li>
-          <li id="qtv" onclick="show(this)">Quản trị viên</li>
-          <li id="tk" onclick="show(this)">Thống kê</li>
-        </ul>
-      </div>
-      <div id="" class="content">
-        <div id="list">
+            <div id="formseacrch" class="none">
+                <input type='text' class='search' id='search' placeholder="Tìm kiếm user"><i class="fas fa-search"></i>
+            </div>
+            <div id="formsearchproduct" class="none">
+                <input type="text" class="seacrchproduct " id="seacrchproduct" placeholder="Tìm kiếm sản phẩm"><i class="fas fa-search"></i>
+
+            </div>
+        </div>
+        <div id="wp-content">
+            <div class="left">
+                <ul class="list-item">
+                    <a href="index.html">
+                        <li>Trở về trang chủ</li>
+                    </a>
+                    <li id="sp" onclick="show(this)">Sản phẩm</li>
+                    <li id="qtv" onclick="show(this)">Quản lý khách hàng</li>
+                    <li id="qldh" onclick="show(this)">Quản lý đơn hàng</li>
+
+            
+
+                </ul>
+            </div>
+            <div id="" class="content">
+                <div id="list">
+
+                </div>
+                <div id="paginate"></div>
+            </div>
+
+            <div id="right" class="right">
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+
+        <div id="footer">footer</div>
+
+
+        <div id="update">
+            <div class="formupdate">
+                <div class="head">
+                    <h2>Cập nhật sản phẩm</h2>
+                    <i onclick="hide()" class="fas fa-backspace"></i>
+                </div>
+                <label for="">Tên sản phẩm</label>
+                <input type="text" id="nameupdate" value="" placeholder="Tên sản phẩm">
+                <label for="">Gía sản phẩm</label>
+                <input type="text" id="priceupdate" placeholder="Gía sản phẩm">
+                <label for="">Mã sản phẩm</label>
+                <input type="text" id="codeupdate" value="" placeholder="Mã sản phẩm">
+                <label for="">Chi tiết sản phẩm</label>
+                <textarea name="" id="detailupdate" placeholder="Chi tiết sản phẩm" cols="15" rows="5"></textarea>
+                <label for="">TypeId</label>
+                <input type="text" value="" id="typeIDproduct">
+                <label for="">Tác giả</label>
+                <input type="text" name="" id="authorupdate">
+                <label for="">Nhà xuất bản</label>
+                <input type="text" name="" id="nxbupdate">
+                <img src="" id="infoproduct" alt="">
+                <input type="submit" class="btn-add" onclick="updateproduct()" value="Cập nhật sản phẩm">
+            </div>
+        </div>
+        <div id="updateuser">
+            <div class="formupdate">
+                <div class="head">
+                    <h2>Cập nhật thông tin</h2>
+                    <i onclick="hideformupdateuser()" class="fas fa-backspace"></i>
+                </div>
+                <label for="">Username</label>
+                <input type="text" id="usernameUpdate" placeholder="Username" value="">
+                <label for="">Họ và tên</label>
+                <input type="text" id="fullnameUpdate" placeholder="Họ và tên" value="">
+                <label for="">Số điện thoại</label>
+                <input type="text" value="" id="phoneUpdate" placeholder="Số điện thoại">
+                <label for="">Mật khẩu</label>
+                <input type="text" id="passwordUpdate" placeholder="Mật khẩu" value="">
+                <input type="submit" onclick="checkupdateuser()" value="Cập nhât" class="btn-update">
+            </div>
+        </div>
+
+        <div id="detailCart">
+            <div class="cart">
+                <div id="listproductcart">
+
+
+                </div>
+            </div>
 
         </div>
-        <div id="paginate"></div>
-      </div>
 
-      <div id="right" class="right">
-      </div>
 
-      <div class="clearfix"></div>
     </div>
 
-    <div id="footer">footer</div>
 
-
-    <div id="update">
-      <div class="formupdate">
-        <div class="head">
-          <h2>Cập nhật sản phẩm</h2>
-          <i onclick="hide()" class="fas fa-backspace"></i>
-        </div>
-        <label for="">Tên sản phẩm</label>
-        <input type="text" id="nameupdate" value="" placeholder="Tên sản phẩm">
-        <label for="">Gía sản phẩm</label>
-        <input type="text" id="priceupdate" placeholder="Gía sản phẩm">
-        <label for="">Mã sản phẩm</label>
-        <input type="text" id="codeupdate" value="" placeholder="Mã sản phẩm">
-        <label for="">TypeId</label>
-        <input type="text" value="" id="typeIDproduct">
-        <img src="" id="infoproduct" alt="">
-        <input type="submit" class="btn-add" onclick="updateproduct()" value="Cập nhật sản phẩm">
-      </div>
-    </div>
     <!-- icon pack -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

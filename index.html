@@ -2,154 +2,177 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Đồ án môn học</title>
-  <link rel="stylesheet" href="./access/style/base.css" />
-  <link rel="stylesheet" href="./access/style/gridLayout.css" />
-  <link rel="stylesheet" href="./access/style/main.css" />
-  <link rel="stylesheet" href="./access/style/responsive.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
-  <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="./access/icon_pack/themify-icons.css" />
-  <link rel="stylesheet" href="access/fontawesome/css/all.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebDemo</title>
+    <link rel="stylesheet" href="./access/style/base.css" />
+    <link rel="stylesheet" href="./access/style/gridLayout.css" />
+    <link rel="stylesheet" href="./access/style/main.css" />
+    <link rel="stylesheet" href="./access/style/responsive.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
+    <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./access/icon_pack/themify-icons.css" />
+    <link rel="stylesheet" href="access/fontawesome/css/all.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
+
 </head>
+<!-- <script>
+    $(document).ready(function() {
+        $('#page-header-search-field').keyup(function() {
+            var query = $(this).val();
+            alert(query)
+                // $.ajax({
+                //     url: "process.php", // đường dẫn khi gửi dữ liệu đi 'search' là tên route mình đặt bạn mở route lên xem là hiểu nó là cái j.
+                //     method: "POST", // phương thức gửi dữ liệu.
+                //     data: {
+                //         query: query,
+                //     },
+                //     success: function(data) { //dữ liệu nhận về
+                //         $('#list').fadeIn();
+                //         $('#list').html(data); //nhận dữ liệu dạng html và gán vào cặp thẻ có id là countryList
+                //     }
+                // });
+        })
+    })
+</script> -->
 
 <body>
-  <div class="apps">
-    <!-- page header -->
-    <div id="page-header">
-      <!-- page header grid layout -->
-      <div class="grid">
-        <!-- top of header -->
-        <div class="page-header-top">
-          <!-- left top header side -->
-          <div class="page-header-top__left" id="form_login_reg">
-            <!-- login -->
-            <!-- <div id="page-header-top__login" class="page-header-top__login page-header-item-hover">
+    <div class="apps">
+        <!-- page header -->
+        <div id="page-header">
+            <!-- page header grid layout -->
+            <div class="grid">
+                <!-- top of header -->
+                <div class="page-header-top">
+                    <!-- left top header side -->
+                    <div class="page-header-top__left" id="form_login_reg">
+                        <!-- login -->
+                        <!-- <div id="page-header-top__login" class="page-header-top__login page-header-item-hover">
               <span id="page-header-login-span-id" class="page-header-login-span" onclick="showLoginFormFnc()">Đăng nhập</span>
             </div> -->
 
-            <!-- register -->
-            <!-- <div id="page-header-top__register" class="page-header-top__register page-header-item-hover">
+                        <!-- register -->
+                        <!-- <div id="page-header-top__register" class="page-header-top__register page-header-item-hover">
               <span id="page-header-register-span-id" class="page-header-register-span" onclick="showRegisterFormFnc()">Đăng ký</span>
             </div> -->
-          </div>
+                    </div>
 
-          <!-- page header logo -->
-          <div class="page-header-logo">
-            <a href="#" class="page-header-logo-link">
-              <img src="./access/image/header_logo/logo.png" alt="LOGO" class="page-header-logo-img" />
-            </a>
-          </div>
+                    <!-- page header logo -->
+                    <div class="page-header-logo">
+                        <a href="#" class="page-header-logo-link">
+                            <img src="./access/image/header_logo/logo.png" alt="LOGO" class="page-header-logo-img" />
+                        </a>
+                    </div>
 
-          <!-- right top header side -->
-          <div class="page-header-top__right">
-            <!-- header search button -->
-            <div class="page-header-top__right-search">
-              <ion-icon class="page-header-search-icon" name="search-outline"></ion-icon>
-              <div class="page-header-search-box">
-                <input id="page-header-search-field" type="text" class="page-header-search-field" placeholder="Tìm kiếm..." />
-                <!-- <a href="#home-product-id"> -->
-                <ion-icon class="page-header-search-nav-icon" name="search-outline" onclick="searchProduct();"></ion-icon>
-                <!-- </a> -->
-              </div>
+                    <!-- right top header side -->
+                    <div class="page-header-top__right">
+                        <!-- header search button -->
+
+                        <div class="page-header-top__right-search">
+                            <i onclick='listcart()' class="fas fa-history"></i>
+                        </div>
+                        <div class="page-header-top__right-search">
+                            <a href="">
+                                <ion-icon class="page-header-search-icon" name="search-outline"></ion-icon>
+                            </a>
+                            <div class="page-header-search-box">
+                                <input id="page-header-search-field" type="text" class="page-header-search-field" placeholder="Tìm kiếm..." />
+                                <!-- <a href="#home-product-id"> -->
+                                <ion-icon class="page-header-search-nav-icon" name="search-outline" onclick="searchProduct();"></ion-icon>
+                                <!-- </a> -->
+                            </div>
+                        </div>
+                        <!-- header cart button -->
+                        <div class="page-header-top__right-cart" onclick="showCart();">
+                            <a href="cart.html">
+                                <ion-icon class="page-header-cart-icon" name="cart-outline"></ion-icon>
+                            </a>
+                            <!-- cart box -->
+
+
+                        </div>
+
+
+                    </div>
+
+                </div>
             </div>
-            <!-- header cart button -->
-            <div class="page-header-top__right-cart" onclick="showCart();">
-              <ion-icon class="page-header-cart-icon" name="cart-outline"></ion-icon>
-              <!-- cart box -->
-              <div id="page-header-top__right-cart-box-id" class="page-header-top__right-cart-box">
-              </div>
 
+            <div class="page-header-bot">
+                <ul class="page-header-navbar">
+                    <!-- home navbar -->
+                    <li class="page-header-navbar-item">
+                        <a href="#" class="page-header-navbar-link page-header-navbar-home">
+                            <span>Trang chủ</span>
+                        </a>
+                    </li>
+
+                    <!-- about navbar -->
+                    <li class="page-header-navbar-item">
+                        <a href="#" class="page-header-navbar-link page-header-navbar-about">
+                            <span>Giới thiệu</span>
+                        </a>
+                    </li>
+
+                    <!-- product navbar -->
+                    <li class="page-header-navbar-item page-header-navbar-prod">
+                        <a href="#home-product-id" class="page-header-navbar-link page-header-navbar-product">
+                            <span> Sản phẩm </span>
+                        </a>
+                    </li>
+
+                    <!-- contact navbar -->
+                    <li class="page-header-navbar-item">
+                        <a href="#" class="page-header-navbar-link page-header-navbar-contact">
+                            <span>Liên hệ</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
-          </div>
         </div>
-
-        <div class="page-header-bot">
-          <ul class="page-header-navbar">
-            <!-- home navbar -->
-            <li class="page-header-navbar-item">
-              <a href="#" class="page-header-navbar-link page-header-navbar-home">
-                <span>Trang chủ</span>
-              </a>
-            </li>
-
-            <!-- about navbar -->
-            <li class="page-header-navbar-item">
-              <a href="#" class="page-header-navbar-link page-header-navbar-about">
-                <span>Giới thiệu</span>
-              </a>
-            </li>
-
-            <!-- product navbar -->
-            <li class="page-header-navbar-item page-header-navbar-prod">
-              <a href="#home-product-id" class="page-header-navbar-link page-header-navbar-product">
-                <span> Sản phẩm </span>
-              </a>
-            </li>
-
-            <!-- contact navbar -->
-            <li class="page-header-navbar-item">
-              <a href="#" class="page-header-navbar-link page-header-navbar-contact">
-                <span>Liên hệ</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
     </div>
 
     <div class="grid">
-      <!-- slider  -->
-      <div id="slider">
-        <a href=""><img src="access/image/slider/slider.jpg" alt=""></a>
-      </div>
-      <!-- page container -->
-      <div id="page-container">
-        <!-- about section -->
-        <div class="about-section">
-          <h1 class="about-title">giới thiệu</h1>
-          <div class="about-detail">
-            Mở đầu tác phẩm là không khí căng thẳng, ngột ngạt của một làng quê trong những ngày sưu thuế. Tiếng trống mõ, tù và inh ỏi, tiếng thét lác, đánh đập, tiếng kêu khóc vang lên như trong một cuộc săn người. Gia đình chị Dậu thuộc loại “nhất nhì trong hạng
-            cùng đinh” nên mấy hôm nay chị phải chạy vạy ngược xuôi để có tiền nộp suất sưu cho anh Dậu. Anh Dậu đang ốm cũng bị bọn tay sai xông đến đánh trói, lôi ra đình cùm kẹp. Chị đành phải rứt ruột đem cái Tí, đứa con gái đầu lòng 7 tuổi,
-            bán cho lão Nghị Quế bên thôn Đoài. Ngờ đâu chị lại còn buộc phải nộp cả suất sưu của người em chồng đã chết từ năm ngoái! Thật là cùng đường. Giữa đình làng, tiếng kêu uất ức của chị vang lên thảm thiết. Đêm hôm ấy, người ta cõng
-            anh Dậu rũ rượi như một xác chết ở ngoài đình về trả cho chị. Gọi mãi anh không tỉnh chị vô cùng hoảng sợ, đau đớn. May sao, nhờ bà con xung quanh xúm đến cứu giúp, anh Dậu đã từ từ mở mắt. Một bà lão hàng xóm ái ngại cảnh cả nhà chị
-            nhịn đói suốt từ hôm qua, mang đến cho chị bát gạo để nấu cháo...
-          </div>
+        <!-- slider  -->
+        <div id="slider">
+            <a href=""><img src="access/image/slider/slider.jpg" alt=""></a>
         </div>
+        <!-- page container -->
+        <div id="page-container">
+            <!-- about section -->
 
-        <!-- product section -->
-        <div id="product-section-id" class="product-section">
-          <div class="grid">
-            <div class="grid__row">
-              <div class="grid__col-2">
-                <div class="product-type-section">
-                  <!-- product type header -->
-                  <h3 class="product-type-header">
-                    <ion-icon name="menu-outline" class="product-type-header-icon"></ion-icon>
-                    <span class="product-type-header-span">Danh mục</span>
-                  </h3>
 
-                  <!-- product type list -->
-                  <ul id="product-type-list-id" class="product-type-list">
-                    <!-- Minh hoạ code -->
-                    <!-- <li class="product-type__item">
+            <!-- product section -->
+            <div id="product-section-id" class="product-section">
+                <div class="grid">
+                    <div class="grid__row">
+                        <div class="grid__col-2">
+                            <div class="product-type-section">
+                                <!-- product type header -->
+                                <h3 class="product-type-header">
+                                    <ion-icon name="menu-outline" class="product-type-header-icon"></ion-icon>
+                                    <span class="product-type-header-span">Danh mục</span>
+                                </h3>
+
+                                <!-- product type list -->
+                                <ul id="product-type-list-id" class="product-type-list">
+                                    <!-- Minh hoạ code -->
+                                    <!-- <li class="product-type__item">
                         <a href="" class="product-type__item-link">Item 1</a>
                       </li>
                       <li class="product-type__item product-type__item--actived">
                         <a href="" class="product-type__item-link">Item 2</a>
                       </li> -->
-                  </ul>
-                </div>
-              </div>
+                                </ul>
+                            </div>
+                        </div>
 
-              <div class="grid__col-10">
-                <div id="home-product-id" class="home-product">
-                  <!-- <div class="grid">
+                        <div class="grid__col-10">
+                            <div id="home-product-id" class="home-product">
+                                <!-- <div class="grid">
 
                     <div class="grid__row">
                       <div class="grid__col-2-4">
@@ -172,11 +195,11 @@
                       </div>
                     </div>
                   </div> -->
-                </div>
+                            </div>
 
-                <!-- pagination -->
-                <div id="home-product-pagination-id" class="home-product-pagination">
-                  <!-- <div class="home-product-pagination-prev">
+                            <!-- pagination -->
+                            <div id="home-product-pagination-id" class="home-product-pagination">
+                                <!-- <div class="home-product-pagination-prev">
                     <ion-icon name="chevron-back-outline"></ion-icon>
                   </div>
                   <div class="home-product-pagination-page">1</div>
@@ -185,211 +208,200 @@
                   <div class="home-product-pagination-next">
                     <ion-icon name="chevron-forward-outline"></ion-icon>
                   </div> -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
     <!-- page footer -->
     <div id="page-footer">
-      <div class="grid">
-        <div class="wp-inner">
-          <div class="about" id="info-company">
-            <h3 class="title">FASHION TREND</h3>
-            <p class="desc footer-detail">
-              FASHION TREND luôn cung cấp luôn là sản phẩm chính hãng có thông tin rõ ràng, chính sách ưu đãi cực lớn cho khách hàng có thẻ thành viên.
-            </p>
-          </div>
-          <div class="address" id="info-shop">
-            <h3 class="title">Thông tin cửa hàng</h3>
-            <ul class="list-item">
-              <li class="footer-detail">
-                <p>ĐẠI HỌC SÀI GÒN - AN DƯƠNG VƯƠNG - QUẬN 5 - TP.HCM</p>
-              </li>
-              <li class="footer-detail">
-                <p>0987.654.321 - 0989.989.989</p>
-              </li>
-              <li class="footer-detail">
-                <p>fashiontrend2021@gmail.com</p>
-              </li>
-            </ul>
-          </div>
+        <div class="grid">
+            <div class="wp-inner">
+                <div class="about" id="info-company">
+                    <h3 class="title">BOOKSTORE</h3>
+                    <p class="desc footer-detail">
+                        GIỚI THIỆU Mở đầu tác phẩm là không khí căng thẳng, ngột ngạt của một làng quê trong những ngày sưu thuế. Tiếng trống mõ, tù và inh ỏi, tiếng thét lác, đánh đập, tiếng kêu khóc vang lên như trong một cuộc săn người. Gia đìn </p>
+                </div>
+                <div class="address" id="info-shop">
+                    <h3 class="title">Thông tin cửa hàng</h3>
+                    <ul class="list-item">
+                        <li class="footer-detail">
+                            <p>ĐẠI HỌC SÀI GÒN - AN DƯƠNG VƯƠNG - QUẬN 5 - TP.HCM</p>
+                        </li>
+                        <li class="footer-detail">
+                            <p>0987.654.321 - 0989.989.989</p>
+                        </li>
+                        <li class="footer-detail">
+                            <p>fashiontrend2021@gmail.com</p>
+                        </li>
+                    </ul>
+                </div>
 
-          <div class="policy">
-            <h3 class="title">Chính sách mua hàng</h3>
-            <ul class="list-item">
-              <li class="footer-detail">
-                <a class="footer-detail-link" href="" title="">Quy định - chính sách</a>
-              </li>
-              <li class="footer-detail">
-                <a class="footer-detail-link" href="" title="">Chính sách bảo hành - đổi trả</a>
-              </li>
-              <li class="footer-detail">
-                <a class="footer-detail-link" href="" title="">Chính sách hội viện</a>
-              </li>
-              <li class="footer-detail">
-                <a class="footer-detail-link" href="" title="">Giao hàng - thanh toán</a>
-              </li>
-            </ul>
-          </div>
-          <div class="new" id="newfeed">
-            <h3 class="title">Theo dõi</h3>
-            <p class="desc">
-            <ul class="follow">
-              <li class="footer-detail">
-                <a href="https://www.facebook.com/TheFashionWorldVN/" class="footer-detail-link follow-item">
-                  <i class="fab fa-facebook"></i> Facebook
-                </a>
-              </li>
-              <li class="footer-detail">
-                <a href="" class="footer-detail-link follow-item">
-                  <i class="fab fa-instagram-square"></i> Instagram
-                </a>
-              </li>
-              <li class="footer-detail">
-                <a href="https://www.youtube.com/user/gucciofficial" class="footer-detail-link follow-item">
-                  <i class="fab fa-youtube"></i> Youtube
-                </a>
-              </li>
-              <li class="footer-detail ">
-                <a href="#" class="footer-detail-link follow-item">
-                  <i class="fab fa-twitter"></i> Twitter
-                </a>
-              </li>
-            </ul>
-            </p>
-          </div>
-        </div>
+                <div class="policy">
+                    <h3 class="title">Chính sách mua hàng</h3>
+                    <ul class="list-item">
+                        <li class="footer-detail">
+                            <a class="footer-detail-link" href="" title="">Quy định - chính sách</a>
+                        </li>
+                        <li class="footer-detail">
+                            <a class="footer-detail-link" href="" title="">Chính sách bảo hành - đổi trả</a>
+                        </li>
+                        <li class="footer-detail">
+                            <a class="footer-detail-link" href="" title="">Chính sách hội viện</a>
+                        </li>
+                        <li class="footer-detail">
+                            <a class="footer-detail-link" href="" title="">Giao hàng - thanh toán</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="new" id="newfeed">
+                    <h3 class="title">Theo dõi</h3>
+                    <p class="desc">
+                        <ul class="follow">
+                            <li class="footer-detail">
+                                <a href="https://www.facebook.com/TheFashionWorldVN/" class="footer-detail-link follow-item">
+                                    <i class="fab fa-facebook"></i> Facebook
+                                </a>
+                            </li>
+                            <li class="footer-detail">
+                                <a href="" class="footer-detail-link follow-item">
+                                    <i class="fab fa-instagram-square"></i> Instagram
+                                </a>
+                            </li>
+                            <li class="footer-detail">
+                                <a href="https://www.youtube.com/user/gucciofficial" class="footer-detail-link follow-item">
+                                    <i class="fab fa-youtube"></i> Youtube
+                                </a>
+                            </li>
+                            <li class="footer-detail ">
+                                <a href="#" class="footer-detail-link follow-item">
+                                    <i class="fab fa-twitter"></i> Twitter
+                                </a>
+                            </li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
 
-        <div class="copyright">
-          <p class="copyright-text">© Bản quyền thuộc về FASHION TREND</p>
+            <div class="copyright">
+                <p class="copyright-text">© Bản quyền thuộc về Nhóm 11 PTTKHDT </p>
+            </div>
         </div>
-      </div>
     </div>
 
     <!-- modal layout -->
     <div id="modal-id" class="modal">
-      <!-- modal overlay -->
-      <div class="modal__overlay"></div>
+        <!-- modal overlay -->
+        <div class="modal__overlay"></div>
 
-      <!-- modal body -->
-      <div class="modal__body">
-        <div class="modal__inner">
-          <!-- register form -->
-          <form id="register-form-id" class="register-form">
-            <!-- register form header -->
-            <div class="register-form__header">
-              <h3 class="register-form__heading">Đăng ký</h3>
-              <div class="register-form__exit-btn" onclick="hideRegisterFormFnc();">
-                <ion-icon name="close"></ion-icon>
-              </div>
-            </div>
-
-            <!-- register form body -->
-            <div class="register-form__body">
-              <span class="register-form__span">Họ và tên</span>
-              <input type="text" id="fullname" class="register-form__name-input register-form__field" placeholder="Nhập tên của bạn" />
-              <div id="err_fullname"></div>
-              <span class="register-form__span">Số điện thoại</span>
-              <input type="tel" id="phonenumber" class="register-form__tel register-form__field" placeholder="Nhập số điện thoại" />
-              <div id="err_phone"></div>
-              <span class="register-form__span">Tên tài khoản</span>
-              <input type="text" id="username" class="register-form__id-input register-form__field" placeholder="Nhập tên tài khoản" />
-              <div id="err_userName"></div>
-              <span class="register-form__span">Mật khẩu</span>
-              <input type="password" id="password" class="register-form__password register-form__field" placeholder="Nhập mật khẩu" />
-              <div id="err_password"></div>
-              <span class="register-form__span">Xác nhận mật khẩu</span>
-              <input type="password" id="password_confirm" class="register-form__password-comfirm register-form__field" placeholder="Nhập lại mật khẩu" />
-              <div id="err_password-confirm"></div>
-            </div>
-
-            <!-- register form footer -->
-            <div class="register-form__footer">
-              <input type="button" class="register-form__btn btn-hover-8" value="Đăng ký" onclick="reg()" />
-            </div>
-          </form>
-
-          <form id="login-form-id" class="login-form">
-            <!-- login form header -->
-            <div class="login-form__header">
-              <h3 class="login-form__heading">Đăng nhập</h3>
-              <div id=" login-form__exit-btn-id" class="login-form__exit-btn" onclick="hideLoginFormFnc();">
-                <ion-icon name="close"></ion-icon>
-              </div>
-            </div>
-
-            <!-- login form body -->
-            <div class="login-form__body">
-              <span class="login-form__span">Tên tài khoản</span>
-              <input type="text" id="login-form__username" class="login-form__id-input login-form__field" placeholder="Nhập tên tài khoản" value="" />
-
-              <span class="login-form__span">Mật khẩu</span>
-              <input id="login-form__password" type="password" class="login-form__password login-form__field" placeholder="Nhập mật khẩu" value="" />
-
-            </div>
-
-            <!-- login form footer -->
-            <div class="login-form__footer">
-              <input type="button" class="login-form__btn btn-hover-8" value="Đăng nhập" onclick="login();" />
-            </div>
-          </form>
-
-          <div id="form-checkout" class="form-checkout">
-            <div class="form-checkout-header">
-              <h1 class="form-checkout-heading">
-                Thanh toán
-              </h1>
-              <button class="form-checkout-exit-btn btn" onclick="exitCheckOutFormFNC();">
-                <ion-icon name="close"></ion-icon>
-              </button>
-            </div>
-            <div id='checkout'>
-              <form action='' class='infouser'>
-                <label class="form-checkout-label" for=''>Họ và tên</label>
-                <input class="form-check-out-input" type='text' id='fullnameuser' value='' placeholder='Họ và tên'>
-                <label class="form-checkout-label" for="">Số điện thoại</label>
-                <input class="form-check-out-input" type='text' id='phoneuser' value='' placeholder='Số điện thoại'>
-                <label class="form-checkout-label" for=''>Địa chỉ giao hàng</label>
-                <textarea class="form-checkout-textarea" name='' id='address' cols='5' placeholder='Địa chỉ giao hàng' rows='5'></textarea>
-                <label class="form-checkout-label" for=''>Ghi chú</label>
-                <textarea class="form-checkout-textarea" name='' id='notes' cols='5' rows='5' placeholder='Ghi chú'></textarea>
-                <label class="form-checkout-label form-checkout-pay-method" for=''>Hình thức thanh toán</label>
-                <select name='payment' id='payment'>
-                  <option value=''>------Chọn------</option>
-                  <option value='Thanh toán khi nhận hàng'>Thanh toán khi nhận hàng</option>
-                  <option value='Thanh toán qua thẻ'>Thanh toán qua thẻ</option>
-                </select>
-                <input class="form-checkout-submit-btn" type='submit' name='' onclick="checkOut()" value='Thanh toán' class='btn-checkout'>
-              </form>
-              <div id='detailCheckout' class="detail-checkout">
-                <!-- <ul class='listproduct'>
-                  <li class="check-out-product-item">
-                    <div class='thumb'>
-                      <img src='access/image/product/001.jpg' alt=''>
+        <!-- modal body -->
+        <div class="modal__body">
+            <div class="modal__inner">
+                <!-- register form -->
+                <form id="register-form-id" class="register-form">
+                    <!-- register form header -->
+                    <div class="register-form__header">
+                        <h3 class="register-form__heading">Đăng ký</h3>
+                        <div class="register-form__exit-btn" onclick="hideRegisterFormFnc();">
+                            <ion-icon name="close"></ion-icon>
+                        </div>
                     </div>
-                    <div class='moreinfo'>
-                      <p>Số lượng:10</p>
+
+                    <!-- register form body -->
+                    <div class="register-form__body">
+                        <span class="register-form__span">Họ và tên</span>
+                        <input type="text" id="fullname" class="register-form__name-input register-form__field" placeholder="Nhập tên của bạn" />
+                        <div id="err_fullname"></div>
+                        <span class="register-form__span">Số điện thoại</span>
+                        <input type="tel" id="phonenumber" class="register-form__tel register-form__field" placeholder="Nhập số điện thoại" />
+                        <div id="err_phone"></div>
+                        <span class="register-form__span">Tên tài khoản</span>
+                        <input type="text" id="username" class="register-form__id-input register-form__field" placeholder="Nhập tên tài khoản" />
+                        <div id="err_userName"></div>
+                        <span class="register-form__span">Mật khẩu</span>
+                        <input type="password" id="password" class="register-form__password register-form__field" placeholder="Nhập mật khẩu" />
+                        <div id="err_password"></div>
+                        <span class="register-form__span">Xác nhận mật khẩu</span>
+                        <input type="password" id="password_confirm" class="register-form__password-comfirm register-form__field" placeholder="Nhập lại mật khẩu" />
+                        <div id="err_password-confirm"></div>
                     </div>
-                  </li>
-                </ul>
-                <p class="form-checkout-total"><strong>Tổng tiền:1000</strong></p> -->
-              </div>
+
+                    <!-- register form footer -->
+                    <div class="register-form__footer">
+                        <input type="button" class="register-form__btn btn-hover-8" value="Đăng ký" onclick="reg()" />
+                    </div>
+                </form>
+
+                <form id="login-form-id" class="login-form">
+                    <!-- login form header -->
+                    <div class="login-form__header">
+                        <h3 class="login-form__heading">Đăng nhập</h3>
+                        <div id=" login-form__exit-btn-id" class="login-form__exit-btn" onclick="hideLoginFormFnc();">
+                            <ion-icon name="close"></ion-icon>
+                        </div>
+                    </div>
+
+                    <!-- login form body -->
+                    <div class="login-form__body">
+                        <span class="login-form__span">Tên tài khoản</span>
+                        <input type="text" id="login-form__username" class="login-form__id-input login-form__field" placeholder="Nhập tên tài khoản" value="" />
+
+                        <span class="login-form__span">Mật khẩu</span>
+                        <input id="login-form__password" type="password" class="login-form__password login-form__field" placeholder="Nhập mật khẩu" value="" />
+
+                    </div>
+
+                    <!-- login form footer -->
+                    <div class="login-form__footer">
+                        <input type="button" class="login-form__btn btn-hover-8" value="Đăng nhập" onclick="login();" />
+                    </div>
+                </form>
+
+
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
+    <div id="forminfo">
+        <div id="info">
 
-  <!-- icon pack -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+            <div class="head">
+                <h1>Thông tin</h1>
+                <i onclick="hide()" class="fas fa-backspace"></i>
+            </div>
+            <div class="body">
+                <label for="">Họ và tên</label>
+                <input type="text" id="infofullname">
+                <label for="">Tên đăng nhập</label>
+                <input type="text" id="infousername">
+                <label for="">Mật khẩu</label>
+                <input type="password" id="infopassword">
+                <label for="">Số điện thoại</label>
+                <input type="text" id="infophone">
+                <input type="submit" class="btn-up" value="Cập nhật" onclick="xulycapnhat()">
 
-  <!-- apps script -->
-  <script src="./access/javascript/main.js"></script>
+            </div>
+        </div>
+    </div>
+    <div id="listbill">
+        <div class="listbill">
+            <i onclick='hidelistbill()' class="fas fa-backspace"></i>
+            <h1>Lịch sử đơn hàng</h1>
+            <div id="bill">
+
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- icon pack -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <!-- apps script -->
+    <script src="./access/javascript/main.js"></script>
 </body>
 
 </html>

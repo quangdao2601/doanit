@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebDemo</title>
+    <link rel="stylesheet" href="./access/style/base.css" />
+    <link rel="stylesheet" href="./access/style/gridLayout.css" />
+    <link rel="stylesheet" href="./access/style/main.css" />
+    <link rel="stylesheet" href="./access/style/responsive.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
+    <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./access/icon_pack/themify-icons.css" />
+    <link rel="stylesheet" href="access/fontawesome/css/all.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
+
+</head>
+<!-- <script>
+    $(document).ready(function() {
+        $('#page-header-search-field').keyup(function() {
+            var query = $(this).val();
+            alert(query)
+                // $.ajax({
+                //     url: "process.php", // đường dẫn khi gửi dữ liệu đi 'search' là tên route mình đặt bạn mở route lên xem là hiểu nó là cái j.
+                //     method: "POST", // phương thức gửi dữ liệu.
+                //     data: {
+                //         query: query,
+                //     },
+                //     success: function(data) { //dữ liệu nhận về
+                //         $('#list').fadeIn();
+                //         $('#list').html(data); //nhận dữ liệu dạng html và gán vào cặp thẻ có id là countryList
+                //     }
+                // });
+        })
+    })
+</script> -->
+
+<body>
+    <div class="apps">
+        <!-- page header -->
+        <div id="page-header">
+            <!-- page header grid layout -->
+            <div class="grid">
+                <!-- top of header -->
+                <div class="page-header-top">
+                    <!-- left top header side -->
+                    <div class="page-header-top__left" id="form_login_reg">
+                        <!-- login -->
+                        <!-- <div id="page-header-top__login" class="page-header-top__login page-header-item-hover">
+              <span id="page-header-login-span-id" class="page-header-login-span" onclick="showLoginFormFnc()">Đăng nhập</span>
+            </div> -->
+
+                        <!-- register -->
+                        <!-- <div id="page-header-top__register" class="page-header-top__register page-header-item-hover">
+              <span id="page-header-register-span-id" class="page-header-register-span" onclick="showRegisterFormFnc()">Đăng ký</span>
+            </div> -->
+                    </div>
+
+                    <!-- page header logo -->
+                    <div class="page-header-logo">
+                        <a href="#" class="page-header-logo-link">
+                            <img src="./access/image/header_logo/logo.png" alt="LOGO" class="page-header-logo-img" />
+                        </a>
+                    </div>
+
+                    <!-- right top header side -->
+                    <div class="page-header-top__right">
+                        <!-- header search button -->
+
+                        <div class="page-header-top__right-search">
+                            <i onclick='listcart()' class="fas fa-history"></i>
+                        </div>
+                        <div class="page-header-top__right-search">
+                            <ion-icon class="page-header-search-icon" name="search-outline"></ion-icon>
+                            <div class="page-header-search-box">
+                                <input id="page-header-search-field" type="text" class="page-header-search-field" placeholder="Tìm kiếm..." />
+                                <!-- <a href="#home-product-id"> -->
+                                <ion-icon class="page-header-search-nav-icon" name="search-outline" onclick="searchProduct();"></ion-icon>
+                                <!-- </a> -->
+                            </div>
+                        </div>
+                        <!-- header cart button -->
+                        <div class="page-header-top__right-cart" onclick="showCart();">
+                            <ion-icon class="page-header-cart-icon" name="cart-outline"></ion-icon>
+                            <!-- cart box -->
+                            <div id="page-header-top__right-cart-box-id" class="page-header-top__right-cart-box">
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="page-header-bot">
+                    <ul class="page-header-navbar">
+                        <!-- home navbar -->
+                        <li class="page-header-navbar-item">
+                            <a href="#" class="page-header-navbar-link page-header-navbar-home">
+                                <span>Trang chủ</span>
+                            </a>
+                        </li>
+
+                        <!-- about navbar -->
+                        <li class="page-header-navbar-item">
+                            <a href="#" class="page-header-navbar-link page-header-navbar-about">
+                                <span>Giới thiệu</span>
+                            </a>
+                        </li>
+
+                        <!-- product navbar -->
+                        <li class="page-header-navbar-item page-header-navbar-prod">
+                            <a href="#home-product-id" class="page-header-navbar-link page-header-navbar-product">
+                                <span> Sản phẩm </span>
+                            </a>
+                        </li>
+
+                        <!-- contact navbar -->
+                        <li class="page-header-navbar-item">
+                            <a href="#" class="page-header-navbar-link page-header-navbar-contact">
+                                <span>Liên hệ</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid">
+            <!-- slider  -->
+            <div id="slider">
+                <a href=""><img src="access/image/slider/slider.jpg" alt=""></a>
+            </div>
+            <!-- page container -->
+            <div id="page-container">
+                <!-- about section -->
+
+
+                <!-- product section -->
+                <div id="product-section-id" class="product-section">
+
+
+                </div>
+            </div>
+        </div>
+        <!-- page footer -->
+        <div id="page-footer">
+            <div class="grid">
+                <div class="wp-inner">
+                    <div class="about" id="info-company">
+                        <h3 class="title">BOOKSTORE</h3>
+                        <p class="desc footer-detail">
+                            GIỚI THIỆU Mở đầu tác phẩm là không khí căng thẳng, ngột ngạt của một làng quê trong những ngày sưu thuế. Tiếng trống mõ, tù và inh ỏi, tiếng thét lác, đánh đập, tiếng kêu khóc vang lên như trong một cuộc săn người. Gia đìn </p>
+                    </div>
+                    <div class="address" id="info-shop">
+                        <h3 class="title">Thông tin cửa hàng</h3>
+                        <ul class="list-item">
+                            <li class="footer-detail">
+                                <p>ĐẠI HỌC SÀI GÒN - AN DƯƠNG VƯƠNG - QUẬN 5 - TP.HCM</p>
+                            </li>
+                            <li class="footer-detail">
+                                <p>0987.654.321 - 0989.989.989</p>
+                            </li>
+                            <li class="footer-detail">
+                                <p>fashiontrend2021@gmail.com</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="policy">
+                        <h3 class="title">Chính sách mua hàng</h3>
+                        <ul class="list-item">
+                            <li class="footer-detail">
+                                <a class="footer-detail-link" href="" title="">Quy định - chính sách</a>
+                            </li>
+                            <li class="footer-detail">
+                                <a class="footer-detail-link" href="" title="">Chính sách bảo hành - đổi trả</a>
+                            </li>
+                            <li class="footer-detail">
+                                <a class="footer-detail-link" href="" title="">Chính sách hội viện</a>
+                            </li>
+                            <li class="footer-detail">
+                                <a class="footer-detail-link" href="" title="">Giao hàng - thanh toán</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="new" id="newfeed">
+                        <h3 class="title">Theo dõi</h3>
+                        <p class="desc">
+                            <ul class="follow">
+                                <li class="footer-detail">
+                                    <a href="https://www.facebook.com/TheFashionWorldVN/" class="footer-detail-link follow-item">
+                                        <i class="fab fa-facebook"></i> Facebook
+                                    </a>
+                                </li>
+                                <li class="footer-detail">
+                                    <a href="" class="footer-detail-link follow-item">
+                                        <i class="fab fa-instagram-square"></i> Instagram
+                                    </a>
+                                </li>
+                                <li class="footer-detail">
+                                    <a href="https://www.youtube.com/user/gucciofficial" class="footer-detail-link follow-item">
+                                        <i class="fab fa-youtube"></i> Youtube
+                                    </a>
+                                </li>
+                                <li class="footer-detail ">
+                                    <a href="#" class="footer-detail-link follow-item">
+                                        <i class="fab fa-twitter"></i> Twitter
+                                    </a>
+                                </li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="copyright">
+                    <p class="copyright-text">© Bản quyền thuộc về Nhóm 11 PTTKHDT </p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+
+    <!-- icon pack -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <!-- apps script -->
+    <!-- <script src="./access/javascript/main.js"></script>s -->
+    <script src="./access/javascript/cart.js"></script>
+</body>
+
+</html>
